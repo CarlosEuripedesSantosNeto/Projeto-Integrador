@@ -1,39 +1,6 @@
 /*=============== GOOGLE FONTS ===============*/
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
 
-/*=============== VARIABLES CSS ===============*/
-:root {
-  --header-height: 3.5rem;
-
-  /*========== Colors ==========*/
-  /*Color mode HSL(hue, saturation, lightness)*/
-  --black-color: hsl(220, 24%, 12%);
-  --black-color-light: hsl(220, 24%, 15%);
-  --black-color-lighten: hsl(220, 20%, 18%);
-  --white-color: #fff;
-  --body-color: hsl(220, 100%, 97%);
-
-  /*========== Font and typography ==========*/
-  /*.5rem = 8px | 1rem = 16px ...*/
-  --body-font: "Montserrat", sans-serif;
-  --normal-font-size: .938rem;
-
-  /*========== Font weight ==========*/
-  --font-regular: 400;
-  --font-semi-bold: 600;
-
-  /*========== z index ==========*/
-  --z-tooltip: 10;
-  --z-fixed: 100;
-}
-
-/*========== Responsive typography ==========*/
-@media screen and (min-width: 1024px) {
-  :root {
-    --normal-font-size: 1rem;
-  }
-}
-
 /*=============== BASE ===============*/
 * {
   box-sizing: border-box;
@@ -42,9 +9,9 @@
 }
 
 body {
-  font-family: var(--body-font);
-  font-size: var(--normal-font-size);
-  background-color: var(--body-color);
+  font-family: "Montserrat", sans-serif;
+  font-size: .938rem;
+  background-color: white;
 }
 
 ul {
@@ -69,18 +36,18 @@ a {
   width: 100%;
   background-color: #0056b3;
   box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
-  z-index: var(--z-fixed);
+  z-index: 100;
 }
 
 /*=============== NAV ===============*/
 .nav {
-  height: var(--header-height);
+  height: 3.5rem;
 }
 
 .nav__logo, 
 .nav__burger, 
 .nav__close {
-  color: var(--white-color);
+  color: white;
 }
 
 .nav__data {
@@ -94,7 +61,7 @@ a {
   display: inline-flex;
   align-items: center;
   column-gap: .25rem;
-  font-weight: var(--font-semi-bold);
+  font-weight: 600;
 }
 
 .nav__logo i {
@@ -124,6 +91,22 @@ a {
   opacity: 0;
 }
 
+.image{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image img{
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 3px black;
+  border: 3px solid #fff;
+}
+
 /* Navigation for mobile devices */
 @media screen and (max-width: 1118px) {
   .nav__menu {
@@ -147,9 +130,9 @@ a {
 }
 
 .nav__link {
-  color: var(--white-color);
+  color: white;
   background-color: #0056b3;
-  font-weight: var(--font-semi-bold);
+  font-weight: 600;
   padding: 1.25rem 1.5rem;
   display: flex;
   justify-content: space-between;
@@ -192,12 +175,12 @@ a {
 .dropdown__link, 
 .dropdown__sublink {
   padding: 1.25rem 1.25rem 1.25rem 2.5rem;
-  color: var(--white-color);
+  color: white;
   background-color: #0056b3;
   display: flex;
   align-items: center;
   column-gap: .5rem;
-  font-weight: var(--font-semi-bold);
+  font-weight: 600;
   transition: background-color .3s;
 }
 
@@ -310,7 +293,7 @@ input[type="number"] {
   }
 
   .nav {
-    height: calc(var(--header-height) + 2rem);
+    height: calc(3.5rem + 2rem);
     display: flex;
     justify-content: space-between;
   }
