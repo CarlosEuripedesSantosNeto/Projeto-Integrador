@@ -1,16 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
- 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="cadastro.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="cadastro.css" />
     <title>Login</title>
-</head>
 
-<main>
+    <!-- Adicione os scripts do Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyC-URj7iPqpNbt_cxOrW6T16eND-UgmIi8",
+        authDomain: "projeto-integrador-58927.firebaseapp.com",
+        projectId: "projeto-integrador-58927",
+        storageBucket: "projeto-integrador-58927.appspot.com",
+        messagingSenderId: "285779526823",
+        appId: "1:285779526823:web:8aae79ef3afa38faf14782",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+
+      function criarConta() {
+        const email = document.getElementById("signup-email").value;
+        const password = document.getElementById("signup-password").value;
+
+        firebase
+          .auth()
+          .createUserWithEmailAndPassword(email, password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            console.log("Cadastro bem-sucedido: ", user);
+            alert("Conta criada com sucesso!");
+            window.location.href = "../Home/index.html";
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error("Erro durante o cadastro: ", errorMessage);
+          });
+      }
+
+      function logarConta() {
+        const email = document.getElementById("login-email").value;
+        const password = document.getElementById("login-password").value;
+
+        firebase
+          .auth()
+          .signInWithEmailAndPassword(email, password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            console.log("Login bem-sucedido: ", user);
+            window.location.href = "../Home/index.html";
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error("Erro durante o login: ", errorMessage);
+          });
+      }
+    </script>
+  </head>
+
+  <main>
     <body>
+<<<<<<< Updated upstream
  
         <div class="container" id="container">
             <div class="form-container sign-up">
@@ -44,17 +104,50 @@
                     </div>
                 </div>
             </div>
+=======
+      <div class="container" id="container">
+        <div class="form-container sign-up">
+          <form>
+            <h1>Crie Sua Conta</h1>
+            <input type="text" placeholder="Name" />
+            <input type="email" id="signup-email" placeholder="Email" />
+            <input
+              type="password"
+              id="signup-password"
+              placeholder="Password"
+            />
+            <button type="button" onclick="criarConta()">Inscrever-se</button>
+          </form>
+>>>>>>> Stashed changes
         </div>
-        <label class="switch">
-            <input type="checkbox" id ="theme-toggle">
-            <span class="slider"></span>
-        </label>
-        <script src="cadastro.js"></script>
+        <div class="form-container sign-in">
+          <form>
+            <h1>Login</h1>
+            <input type="email" id="login-email" placeholder="Email" />
+            <input type="password" id="login-password" placeholder="Password" />
+            <a href="#">Esqueceu sua senha?</a>
+            <button type="button" onclick="logarConta()">Entrar</button>
+          </form>
+        </div>
+        <div class="toggle-container">
+          <div class="toggle">
+            <div class="toggle-panel toggle-left">
+              <h1>Seja Bem-Vindo</h1>
+              <button class="hidden" id="login">Entrar</button>
+            </div>
+            <div class="toggle-panel toggle-right">
+              <h1>Bem-Vindo de Volta</h1>
+              <button class="hidden" id="register">Inscrever-se</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle" />
+        <span class="slider"></span>
+      </label>
+
+      <script src="cadastro.js"></script>
     </body>
-
-</main>
-
-
- 
+  </main>
 </html>
-
