@@ -1,64 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-   <!--=============== REMIXICONS ===============-->
+   <!--=============== ICONS ===============-->
    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
 
    <!--=============== CSS ===============-->
-   <link rel="stylesheet" href="assets/css/styles.css">
+   <link rel="stylesheet" href="styles.css">
 
    <title>Pomodoro</title>
 </head>
+
 <body>
    <!--=============== HEADER ===============-->
    <header class="header">
       <div class="container">
          <nav class="nav">
-            <a href="index.html" class="nav__logo">
+            <a href="index.html" class="logo">
                <i class="ri-planet-line"></i> Pomodoro
             </a>
-            <div class="nav__toggle" id="nav-toggle">
-               <i class="ri-menu-line nav__burger"></i>
-               <i class="ri-close-line nav__close"></i>
+
+            <!-- Nav Icons -->
+            <div class="nav-icons" id="nav-icons">
+               <i class="ri-menu-line nav-abrir"></i>
+               <i class="ri-close-line nav-fechar"></i>
             </div>
-            <div class="nav__menu" id="nav-menu">
-               <ul class="nav__list">
-                  <li><a href="#" class="nav__link">Tarefas</a></li>
-                  <li class="dropdown__item">
-                     <a href="#" class="nav__link">Usuário <i class="ri-arrow-down-s-line dropdown__arrow"></i></a>
-                     <ul class="dropdown__menu">
-                        <li><a href="#" class="dropdown__link"><i class="ri-user-line"></i> Conta</a></li>
-                        <li><a href="#" class="dropdown__link"><i class="ri-lock-line"></i> Cadastro</a></li>
+
+            <!-- Nav Menu -->
+            <div class="nav-menu" id="nav-menu">
+               
+               <ul class="nav-lista">
+                  <li><a href="/Tarefas/index.html" class="nav-links">Tarefas</a></li>
+
+                  <!-- Link usuário -->
+                  <li class="link-usuario">
+                     <a href="#" class="nav-links">Usuário<i class="ri-arrow-down-s-line usuario-icon"></i></a>
+                     <ul class="usuario-menu">
+                        <li><a href="#" class="usuario-links"><i class="ri-user-line"></i> Conta</a></li>
+                        <li><a href="../cadastro/cadastro.html" class="usuario-links"><i class="ri-lock-line"></i> Cadastro</a></li>
                      </ul>
                   </li>
-                  <li><a href="#" class="nav__link">Configurações</a></li>
-                  <li><a href="#" class="nav__link">Contatos</a></li>
+
+                  <li><a href="#" class="nav-links">Configurações</a></li>
+                  <li><a href="#" class="nav-links">Contatos</a></li>
                    
                   <div class="image">
                      <img src="image.png">
                   </div>
-
+               
                </ul>
             </div>
          </nav>
       </div>
    </header>
 
-   <!--=============== MAIN JS ===============-->
-   <script src="assets/js/main.js"></script>
-
-   <!--=============== Código Pomodoro ===============-->
+   <!--=============== POMODORO ===============-->
    <div class="container">
       <div class="timer-container">
          <div>
-            <label for="pomodoro-time">Pomodoro Time (minutes):</label>
+            <label for="pomodoro-time">Tempo Pomodoro (minutos):</label>
             <input type="number" id="pomodoro-time" min="1" value="25">
          </div>
          <div>
-            <label for="break-time">Break Time (minutes):</label>
+            <label for="break-time">Tempo de descanso (minutos):</label>
             <input type="number" id="break-time" min="1" value="5">
          </div>
          <div id="timer">25:00</div>
@@ -68,20 +74,10 @@
             <button id="reset">Voltar</button>
          </div>
       </div>
-      <div class="musica">
-         <audio id="musicaflutuante" controls>
-            <source src="musica de fundo/Musica de fundo.mp3" type="audio/mpeg">
-         </audio>
-      </div>
-      <div class="task-container">
-         <div>
-            <input type="text" id="newTaskInput" placeholder="Adicione uma nova tarefa">
-            <button id="addTaskButton">Adicionar</button>
-         </div>
-         <ul id="taskList" class="task-list"></ul>
-      </div>
    </div>
 
-   <script src="assets/js/pomodoro.js"></script>
+   <!--=============== JS ===============-->
+   <script src="main.js"></script>
+   <script src="pomodoro.js"></script>
 </body>
 </html>
