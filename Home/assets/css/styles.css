@@ -376,3 +376,70 @@ input[type="number"] {
 .musica audio {
   width: 500px; 
 }
+
+section {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: 100%;
+  padding: 10%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column; 
+}
+
+.nomes {
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.contatosdevs {
+  margin-top: 150px;
+  border-radius: 10px;
+  padding-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px; 
+  position: relative;
+  background-color: #ffffff;
+  border: 2px solid #007bff; 
+}
+
+hr {
+  border: none;
+  border-top: 1px solid black; 
+  margin: 20px 0; 
+}
+
+.contatos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.contatosdevs {
+  margin-top: 150px;
+  border-radius: 10px;
+  padding-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px; /* Margem direita para separar visualmente os contatos */
+  position: relative;
+  background-color: #ffffff;
+}
+
+/* Estilos das divs de contatos */
+.contatosdevs a {
+  margin: 0 10px; /* Margem para separar os links */
+  margin-bottom: 10px;
+
+}
+
+       
