@@ -6,6 +6,7 @@
 
    <!--=============== ICONS ===============-->
    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
    <!--=============== CSS ===============-->
    <link rel="stylesheet" href="styles.css">
@@ -14,6 +15,7 @@
 </head>
 
 <body>
+   
    <!--=============== HEADER ===============-->
    <header class="header">
       <div class="container">
@@ -44,7 +46,7 @@
                   </li>
 
                   <li><a href="#" class="nav-links">Configurações</a></li>
-                  <li><a href="#" class="nav-links">Contatos</a></li>
+                  <li><a href="/Contatos/contatos.html" class="nav-links">Contatos</a></li>
                    
                   <div class="image">
                      <img src="image.png">
@@ -57,24 +59,24 @@
    </header>
 
    <!--=============== POMODORO ===============-->
-   <div class="container">
-      <div class="timer-container">
-         <div>
-            <label for="pomodoro-time">Tempo Pomodoro (minutos):</label>
-            <input type="number" id="pomodoro-time" min="1" value="25">
-         </div>
-         <div>
-            <label for="break-time">Tempo de descanso (minutos):</label>
-            <input type="number" id="break-time" min="1" value="5">
-         </div>
-         <div id="timer">25:00</div>
-         <div class="controls">
-            <button id="start">Começar</button>
-            <button id="pause">Pausar</button>
-            <button id="reset">Voltar</button>
-         </div>
+   <div class="control clearfix">
+      <div class="control-session">
+        <span class="control-title">session</span>
+        <i class="fa fa-minus-circle" id="session-minus"></i> &nbsp; <span id="session">25</span> &nbsp; <i class="fa fa-plus-circle" id="session-plus"></i>
       </div>
-   </div>
+      <div class="control-break">
+        <span class="control-title">break</span>
+        <i class="fa fa-minus-circle" id="break-minus"></i> &nbsp; <span id="break">5</span> &nbsp; <i class="fa fa-plus-circle" id="break-plus"></i>
+      </div>
+    </div>
+    <div class="pomodoro session">
+      <div class="title">POMODORO</div>
+      <div class="status">Sessão</div>
+      <div class="timer">25:00</div>
+      <button class="button" id="switch"><i class="fas fa-exchange"></i></button>
+      <button class="button" id="reset"><i class="fa fa-refresh"></i></button>
+      <button class="button" id="toggle"><i class="fa fa-play"></i></button>
+    </div>
 
    <!--=============== JS ===============-->
    <script src="main.js"></script>

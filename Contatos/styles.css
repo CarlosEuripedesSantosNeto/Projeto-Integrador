@@ -266,130 +266,110 @@ a {
   }
 }
 
-/*=============== POMODORO ===============*/
+/*=============== CONTATOS ===============*/
 
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
+.cards-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25vh;
 }
 
-.control {
-  margin: 13vh auto;
-  width: 300px;
-}
-
-.control-title {
-  display: block;
-  margin: 0 0 5px;
-  font-size: 0.6em;
-  letter-spacing: 0.25em;
-}
-
-.control-session,
-.control-break {
-  padding: 5px 10px;
-  width: 140px;
-  color: #3e4348;
-  color: rgba(0, 0, 0, 0.35);
-  font-size: 1.5em;
-  text-align: center;
-}
-
-.control-session {
-  float: left;
-}
-
-.control-break {
-  float: right;
-}
-
-.pomodoro {
+.wrapper {
+  height: 400px;
+  width: 320px;
   position: relative;
-  margin: auto;
-  border-radius: 50%;
-  width: 300px;
-  height: 300px;
-  color: #3e4348;
-  text-align: center;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  margin-left: 50px;
 }
 
-.title {
-  display: inline-block;
+.wrapper .card {
   position: absolute;
-  top: 20px;
-  left: 0;
-  padding: 10px;
-  background: #3e4348;
-  color: #fff;
-  font-size: 0.6em;
-  letter-spacing: 0.25em;
-}
-
-.status {
-  position: absolute;
-  top: 80px;
+  height: 100%;
   width: 100%;
-  color: #3e4348;
-  color: rgba(0, 0, 0, 0.3);
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.25em;
-}
-
-.timer {
-  padding-top: 110px;
-  font-size: 4em;
-}
-
-.button {
-  margin: 15px 5px;
-  padding: 0;
-  border: 0;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
+  padding: 5px;
   background: #fff;
-  color: #3e4348;
-  line-height: 36px;
-  cursor: pointer;
+  border-radius: 10px;
+  transform: translateY(0deg);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+  transition: transform 0.7s cubic-bezier(0.4,0.2,0.2,1);
 }
 
-.button:hover {
-  background: #3e4348;
+.wrapper:hover > .front-face {
+  transform: rotateY(-180deg);
+}
+
+.wrapper .card img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.wrapper .back-face {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  transform: rotateY(180deg);
+}
+
+.wrapper:hover > .back-face {
+  transform: rotateY(0deg);
+}
+
+.wrapper .back-face img {
+  height: 150px;
+  width: 150px;
+  padding: 5px;
+  border-radius: 50%;
+  background: linear-gradient(375deg, #0056b3, #0056b3);
+}
+
+.wrapper .back-face .info {
+  text-align: center;
+}
+
+.back-face .info .title {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.back-face ul {
+  display: flex;
+}
+
+.back-face ul a {
+  display: block;
+  height: 40px;
+  width: 40px;
   color: #fff;
+  text-align: center;
+  margin: 0 5px;
+  line-height: 38px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  background: linear-gradient(375deg, #0056b3, #0056b3);
+  transition: all 0.5s ease;
 }
 
-.button:focus {
-  outline: none;
+.back-face ul a:hover {
+  color: #0056b3;
+  border-color: #0056b3;
+  background: linear-gradient(375deg, transparent, transparent);
 }
 
-.session {
-  border: 10px solid #0056b3;
-  background: #0056b3;
-  color: #fff;
-  -webkit-animation: glow 1.5s ease-in-out infinite alternate;
-  -moz-animation: glow 1.5s ease-in-out infinite alternate;
-  animation: glow 1.5s ease-in-out infinite alternate;
-}
+/*=============== CONTATOS RESPONSIVO ===============*/
+       
+@media (max-width: 960px) {
 
-.break {
-  background: #e3dede;
-  border: 10px solid #fff;
-  -webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5);
-  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5);
-}
-
-@keyframes glow {
-  from {
-    -webkit-box-shadow: 0 0 30px 0 #003d80;
-    -moz-box-shadow: 0 0 30px 0 #002b59;
-    box-shadow: 0 0 30px 0 #001a33;
+  .cards-container {
+    flex-direction: column;
+    margin-right: 10vw;
+    margin-top: 10vh;
   }
-  to {
-    -webkit-box-shadow: 0 0 50px 5px #0070e0;
-    -moz-box-shadow: 0 0 50px 5px #0083ff;
-    box-shadow: 0 0 50px 5px #0096ff;
-  }
+
 }
