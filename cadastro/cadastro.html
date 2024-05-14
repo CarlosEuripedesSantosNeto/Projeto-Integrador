@@ -28,8 +28,9 @@
       firebase.initializeApp(firebaseConfig);
 
       function criarConta() {
-        const email = document.getElementById("signup-email").value;
-        const password = document.getElementById("signup-password").value;
+        const name = document.querySelector('input[name="name"]').value;
+        const email = document.querySelector('input[name="email"]').value;
+        const password = document.querySelector('input[name="password"]').value;
 
         firebase
           .auth()
@@ -70,55 +71,26 @@
 
   <main>
     <body>
-<<<<<<< Updated upstream
- 
-        <div class="container" id="container">
-            <div class="form-container sign-up">
-                <form>
-                    <h1>Crie Sua Conta</h1>
-                    <input type="text" placeholder="Name">
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password">
-                    <button type="submit">Inscrever-se</button>
-                </form>
-            </div>
-            <div class="form-container sign-in">
-                <form>
-                    <h1>Login </h1>
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password">
-                    <a href="#">Esqueceu sua senha?</a>
-                    <button type="submit">Entrar</button>
-                </form>
-            </div>
-            <div class="toggle-container">
-                <div class="toggle">
-                    <div class="toggle-panel toggle-left">
-                        <h1>Seja Bem-Vindo</h1>
-                       
-                        <button class="hidden" id="login">Entrar</button>
-                    </div>
-                    <div class="toggle-panel toggle-right">
-                        <h1>Bem-Vindo de Volta</h1>
-                        <button class="hidden" id="register">Inscrever-se</button>
-                    </div>
-                </div>
-            </div>
-=======
       <div class="container" id="container">
         <div class="form-container sign-up">
           <form>
             <h1>Crie Sua Conta</h1>
-            <input type="text" placeholder="Name" />
-            <input type="email" id="signup-email" placeholder="Email" />
+            <input type="text" name="name" placeholder="Name" />
+            <input
+              type="email"
+              id="signup-email"
+              name="email"
+              placeholder="Email"
+            />
             <input
               type="password"
               id="signup-password"
+              name="password"
               placeholder="Password"
             />
+
             <button type="button" onclick="criarConta()">Inscrever-se</button>
           </form>
->>>>>>> Stashed changes
         </div>
         <div class="form-container sign-in">
           <form>
