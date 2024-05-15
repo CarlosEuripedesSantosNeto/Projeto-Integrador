@@ -11,7 +11,7 @@
 body {
   font-family: "Montserrat", sans-serif;
   font-size: .938rem;
-  background-color: white;
+  background-color: #1e3662;
   overflow-y: scroll;
   margin-bottom: 5rem; /* Adiciona espaço para o footer */
 }
@@ -35,7 +35,7 @@ a {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #0056b3;
+  background-color: #06214b;
   box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
   z-index: 100;
 }
@@ -118,14 +118,19 @@ a {
     width: 0;
   }
   .nav-lista {
-    background-color: #0056b3;
+    background-color: #06214b;
     padding-top: 1rem;
   }
+
+  .image{
+    display: none;
+  }
+
 }
 
 .nav-links {
   color: white;
-  background-color: #0056b3;
+  background-color: #06214b;
   font-weight: 600;
   padding: 1.25rem 1.5rem;
   display: flex;
@@ -135,7 +140,7 @@ a {
 }
 
 .nav-links:hover {
-  background-color: #0056b3;
+  background-color: #06214b;
 }
 
 .menu-responsivo {
@@ -168,7 +173,7 @@ a {
 .usuario-links {
   padding: 1.25rem 1.25rem 1.25rem 2.5rem;
   color: white;
-  background-color: #0056b3;
+  background-color: #06214b;
   display: flex;
   align-items: center;
   column-gap: .5rem;
@@ -182,7 +187,7 @@ a {
 }
 
 .usuario-links:hover {
-  background-color: #0056b3;
+  background-color: #06214b;
 }
 
 .usuario-menu {
@@ -272,16 +277,16 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 25vh;
+  margin-top: 20vh;
 }
 
 .wrapper {
-  height: 400px;
-  width: 320px;
+  height: 50vh;
+  width: 30vw;
   position: relative;
   transform-style: preserve-3d;
   perspective: 1000px;
-  margin-left: 50px;
+  margin: 6vh;
 }
 
 .wrapper .card {
@@ -298,10 +303,6 @@ a {
   transition: transform 0.7s cubic-bezier(0.4,0.2,0.2,1);
 }
 
-.wrapper:hover > .front-face {
-  transform: rotateY(-180deg);
-}
-
 .wrapper .card img {
   height: 100%;
   width: 100%;
@@ -314,11 +315,6 @@ a {
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
-  transform: rotateY(180deg);
-}
-
-.wrapper:hover > .back-face {
-  transform: rotateY(0deg);
 }
 
 .wrapper .back-face img {
@@ -326,7 +322,7 @@ a {
   width: 150px;
   padding: 5px;
   border-radius: 50%;
-  background: linear-gradient(375deg, #0056b3, #0056b3);
+  background: linear-gradient(375deg, #06214b, #06214b);
 }
 
 .wrapper .back-face .info {
@@ -352,13 +348,13 @@ a {
   line-height: 38px;
   border: 2px solid transparent;
   border-radius: 50%;
-  background: linear-gradient(375deg, #0056b3, #0056b3);
+  background: linear-gradient(375deg, #06214b, #06214b);
   transition: all 0.5s ease;
 }
 
 .back-face ul a:hover {
-  color: #0056b3;
-  border-color: #0056b3;
+  color: #06214b;
+  border-color: #06214b;
   background: linear-gradient(375deg, transparent, transparent);
 }
 

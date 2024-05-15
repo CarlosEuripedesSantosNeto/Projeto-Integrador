@@ -11,9 +11,9 @@
 body {
   font-family: "Montserrat", sans-serif;
   font-size: .938rem;
-  background-color: white;
+  background-color: #1e3662;
   overflow-y: scroll;
-  margin-bottom: 5rem; /* Adiciona espaço para o footer */
+  margin-bottom: 5rem; 
 }
 
 ul {
@@ -35,7 +35,7 @@ a {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #0056b3;
+  background-color: #06214b;
   box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
   z-index: 100;
 }
@@ -118,14 +118,18 @@ a {
     width: 0;
   }
   .nav-lista {
-    background-color: #0056b3;
+    background-color: #06214b;
     padding-top: 1rem;
+  }
+
+  .image{
+    display: none;
   }
 }
 
 .nav-links {
   color: white;
-  background-color: #0056b3;
+  background-color: #06214b;
   font-weight: 600;
   padding: 1.25rem 1.5rem;
   display: flex;
@@ -135,7 +139,7 @@ a {
 }
 
 .nav-links:hover {
-  background-color: #0056b3;
+  background-color: #06214b;
 }
 
 .menu-responsivo {
@@ -168,7 +172,7 @@ a {
 .usuario-links {
   padding: 1.25rem 1.25rem 1.25rem 2.5rem;
   color: white;
-  background-color: #0056b3;
+  background-color: #06214b;
   display: flex;
   align-items: center;
   column-gap: .5rem;
@@ -182,7 +186,7 @@ a {
 }
 
 .usuario-links:hover {
-  background-color: #0056b3;
+  background-color: #06214b;
 }
 
 .usuario-menu {
@@ -267,7 +271,6 @@ a {
 }
 
 /*=============== POMODORO ===============*/
-
 .clearfix:after {
   content: "";
   display: table;
@@ -275,7 +278,7 @@ a {
 }
 
 .control {
-  margin: 13vh auto;
+  margin: 8% auto;
   width: 300px;
 }
 
@@ -290,8 +293,8 @@ a {
 .control-break {
   padding: 5px 10px;
   width: 140px;
-  color: #3e4348;
-  color: rgba(0, 0, 0, 0.35);
+  color: #06214b;
+  color: white;
   font-size: 1.5em;
   text-align: center;
 }
@@ -306,11 +309,11 @@ a {
 
 .pomodoro {
   position: relative;
-  margin: auto;
+  margin: -8vh auto;
   border-radius: 50%;
   width: 300px;
   height: 300px;
-  color: #3e4348;
+  color: white;
   text-align: center;
 }
 
@@ -320,7 +323,7 @@ a {
   top: 20px;
   left: 0;
   padding: 10px;
-  background: #3e4348;
+  background: #06214b;
   color: #fff;
   font-size: 0.6em;
   letter-spacing: 0.25em;
@@ -330,8 +333,7 @@ a {
   position: absolute;
   top: 80px;
   width: 100%;
-  color: #3e4348;
-  color: rgba(0, 0, 0, 0.3);
+  color: white;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.25em;
@@ -350,13 +352,13 @@ a {
   width: 36px;
   height: 36px;
   background: #fff;
-  color: #3e4348;
+  color: #06214b;
   line-height: 36px;
   cursor: pointer;
 }
 
 .button:hover {
-  background: #3e4348;
+  background: #06214b;
   color: #fff;
 }
 
@@ -365,8 +367,8 @@ a {
 }
 
 .session {
-  border: 10px solid #0056b3;
-  background: #0056b3;
+  border: 10px solid #06214b;
+  background: #374a79;
   color: #fff;
   -webkit-animation: glow 1.5s ease-in-out infinite alternate;
   -moz-animation: glow 1.5s ease-in-out infinite alternate;
@@ -374,8 +376,8 @@ a {
 }
 
 .break {
-  background: #e3dede;
-  border: 10px solid #fff;
+  background: #6773a6;
+  border: 10px solid #06214b;
   -webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5);
   box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5);
@@ -383,13 +385,13 @@ a {
 
 @keyframes glow {
   from {
-    -webkit-box-shadow: 0 0 30px 0 #003d80;
-    -moz-box-shadow: 0 0 30px 0 #002b59;
-    box-shadow: 0 0 30px 0 #001a33;
+    -webkit-box-shadow: 0 0 30px 0 #374a79;
+    -moz-box-shadow: 0 0 30px 0 #1e3662;
+    box-shadow: 0 0 30px 0 #06214b;
   }
   to {
-    -webkit-box-shadow: 0 0 50px 5px #0070e0;
-    -moz-box-shadow: 0 0 50px 5px #0083ff;
-    box-shadow: 0 0 50px 5px #0096ff;
+    -webkit-box-shadow: 0 0 50px 5px #6773a6;
+    -moz-box-shadow: 0 0 50px 5px #4f5f8f;
+    box-shadow: 0 0 50px 5px #374a79;
   }
 }
