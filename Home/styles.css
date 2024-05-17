@@ -278,7 +278,11 @@ a {
 }
 
 .control {
+<<<<<<< Updated upstream
   margin: 8% auto;
+=======
+  margin: 9% auto;
+>>>>>>> Stashed changes
   width: 300px;
 }
 
@@ -309,7 +313,11 @@ a {
 
 .pomodoro {
   position: relative;
+<<<<<<< Updated upstream
   margin: -8vh auto;
+=======
+  margin: -14vh auto;
+>>>>>>> Stashed changes
   border-radius: 50%;
   width: 300px;
   height: 300px;
@@ -394,4 +402,29 @@ a {
     -moz-box-shadow: 0 0 50px 5px #4f5f8f;
     box-shadow: 0 0 50px 5px #374a79;
   }
+<<<<<<< Updated upstream
+=======
+}
+
+@media screen and (max-width: 960px) {
+
+  .control {
+    margin: 15% auto;
+  }
+
+  .pomodoro {
+    margin: -11vh auto;
+  }
+}
+
+@media screen and (max-width: 500px) {
+
+  .control {
+    margin: 40% auto;
+  }
+
+  .pomodoro {
+    margin: -10vh auto;
+  }
+>>>>>>> Stashed changes
 }

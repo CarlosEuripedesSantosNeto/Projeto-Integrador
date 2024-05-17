@@ -32,13 +32,22 @@ function resetTimer() {
 }
 
 function switchMode() {
+<<<<<<< Updated upstream
   if (status !== 'break') {
     status = 'break';
+=======
+  if (status !== 'descanso') {
+    status = 'descanso';
+>>>>>>> Stashed changes
     setTime(timeBreak);
     pomodoroSkin.classList.remove("session");
     pomodoroSkin.classList.add("break");
   } else {
+<<<<<<< Updated upstream
     status = 'session';
+=======
+    status = 'sessão';
+>>>>>>> Stashed changes
     setTime(timeSession);
     pomodoroSkin.classList.remove("break");
     pomodoroSkin.classList.add("session");

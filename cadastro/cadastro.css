@@ -6,8 +6,8 @@
 }
  
 body {
-    background-color: #c9d6ff;
-    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    background-color: #6773a6;
+    background: #6773a6;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,6 +24,14 @@ body {
     width: 768px;
     max-width: 100%;
     min-height: 480px;
+}
+
+.container .sign-up h1{
+    color: #374a79;
+}
+
+.container .sign-in h1{
+    color: #374a79;
 }
  
 .container p{
@@ -46,7 +54,7 @@ body {
 }
  
 .container button{
-    background-color: #84ABEA;
+    background-color: #374a79;
     color: #fff;
     font-size: 12px;
     padding: 10px 45px;
@@ -83,6 +91,14 @@ body {
     border-radius: 8px;
     width: 100%;
     outline: none;
+}
+
+.container input::placeholder {
+    color: #374a79;
+}
+
+.container a {
+    color: #374a79;
 }
  
 .form-container{
@@ -160,9 +176,9 @@ body {
 }
  
 .toggle{
-    background-color: #7289DA;
+    background-color: #374a79;
     height: 100%;
-    background: linear-gradient(to right, #5c6bc0, #1D293D);
+    background: #374a79;
     color: #fff;
     position: relative;
     left: -100%;
@@ -209,30 +225,41 @@ body {
 }
 
 .dark-theme {
-    background-color: #555;
+    background-color: #1e3662;
     color: #fff;
 }
 
 .dark-theme .container form {
-    background-color: #555;
+    background-color: #1e3662;
 }
 
 body.dark-theme {
-    background: linear-gradient(to right, #23272A, #1D293D);
+    background: #06214b;
 }
 
 .dark-theme .container {
-    background-color: #555;
+    background-color: #1e3662;
+}
+
+.dark-theme .container .sign-up h1{
+    color: #fff;
+}
+
+.dark-theme .container .sign-in h1{
+    color: #fff;
 }
 
 .dark-theme .container input {
-    background-color: #444;
+    background-color: #374a79;
+    color: #fff;
+}
+
+.dark-theme .container input::placeholder {
     color: #fff;
 }
 
 .dark-theme .container button {
-    background-color: #7289DA;
-    border-color: #555;
+    background-color: #374a79;
 }
 
 .dark-theme .container button.hidden {
@@ -242,11 +269,11 @@ body.dark-theme {
 }
 
 .dark-theme .container a {
-    color: #bbb;
+    color: #fff;
 }
 
 .dark-theme .toggle {
-    background: linear-gradient(to right, #1D293D, #5c6bc0);
+    background: #374a79;
 }
 
 .dark-theme .social-icons a {
@@ -304,18 +331,18 @@ body.dark-theme {
     left: var(--slider-offset,0.3em);
     top: 50%;
     transform: translateY(-50%);
-    background: linear-gradient(40deg,#000000,#000000 70%);
+    background: #1e3662;
     ;
    transition: .4s;
   }
   
   input:checked + .slider {
-    background-color: #303136;
+    background-color: #1e3662;
   }
   
   input:checked + .slider:before {
     left: calc(100% - (var(--size-of-icon,1.4em) + var(--slider-offset,0.3em)));
-    background: #303136;
+    background: #1e3662;
     /* change the value of second inset in box-shadow to change the angle and direction of the moon  */
     box-shadow: inset -3px -2px 5px -2px #ffffff, inset -10px -4px 0 0 #ffffff;
   }
