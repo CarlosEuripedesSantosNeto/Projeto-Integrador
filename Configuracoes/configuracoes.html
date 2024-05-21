@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações</title>
+    <link rel="stylesheet" href="configuracoesstyles.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+           <nav class="nav">
+              <a href="index.html" class="logo">
+                 <i class="ri-planet-line"></i> Pomodoro
+              </a>
+ 
+              <!-- Nav Icons -->
+              <div class="nav-icons" id="nav-icons">
+                 <i class="ri-menu-line nav-abrir"></i>
+                 <i class="ri-close-line nav-fechar"></i>
+              </div>
+ 
+              <!-- Nav Menu -->
+              <div class="nav-menu" id="nav-menu">
+                 <ul class="nav-lista">
+                    <li><a href="/Tarefas/index.html" class="nav-links">Tarefas</a></li>
+ 
+                    <!-- Link usuário -->
+                    <li class="link-usuario">
+                       <a href="#" class="nav-links">Usuário<i class="ri-arrow-down-s-line usuario-icon"></i></a>
+                       <ul class="usuario-menu">
+                          <li><a href="../Contatos/contatos.html" class="usuario-links"><i class="ri-user-line"></i> Conta</a></li>
+                          <li><a href="../cadastro/cadastro.html" class="usuario-links"><i class="ri-lock-line"></i> Cadastro</a></li>
+                       </ul>
+                    </li>
+ 
+                    <li><a href="configuracoes.html" class="nav-links">Configurações</a></li>
+                    <li><a href="/Contatos/contatos.html" class="nav-links">Contatos</a></li>
+                 </ul>
+              </div>
+           </nav>
+        </div>
+     </header>
+
+     <section class="bodyconfiguracoes">
+        <div class="conteudoconfiguracoes">
+
+            <h1>Configurações</h1>
+
+            <div class="configuracoes">
+                <h3>Notificações</h3>
+                <p><input type="checkbox" id="notificacoes" name="notificacoes">
+                <label for="notificacoes">Deseja receber notificações</label></p>
+                <p><input type="checkbox" id="notificacoes-site" name="notificacoes-site">
+                <label for="notificacoes">Deseja receber notificações de atualização do site</label></p>
+            </div>
+
+            <div class="configuracoes">
+                <h3>Temas</h3>
+                <p><label for="tema">Escolha um tema</label></p>
+
+                <label class="switch">
+                    <input type="checkbox" id ="theme-toggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="configuracoes">
+                <h3>Configurar senha</h3>
+                <p>Alterar senha</p>
+                <p><input class="inputsenha" type="text" placeholder="Insira nova senha"></p>
+                <p><button  class="buttonsenha">Alterar</button></p>
+            </div>
+
+        </div>
+    </section>
+</body>
+</html>
