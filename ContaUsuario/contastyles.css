@@ -1,163 +1,282 @@
+/*=============== GOOGLE FONTS ===============*/
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
 
+/*=============== BASE ===============*/
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-    font-family: "Montserrat", sans-serif;
-    font-size: .938rem;
-    background-color: #f0f0f0;
-    overflow-y: scroll;
+  font-family: "Montserrat", sans-serif;
+  font-size: .938rem;
+  background-color: #1e3662;
+  overflow-y: scroll;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .container {
-    max-width: 1120px;
-    margin-inline: auto;
-    padding: 0 1rem;
+  max-width: 1120px;
+  margin-inline: auto;
 }
 
 /*=============== HEADER ===============*/
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #06214b;
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
-    z-index: 100;
-    padding: 0.5rem 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #06214b;
+  box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
+  z-index: 100;
 }
 
+/* Nav */
 .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  height: 3.5rem;
 }
 
 .logo, 
 .nav-abrir, 
 .nav-fechar {
-    color: white;
+  color: white;
 }
 
 .logo {
-    display: inline-flex;
-    align-items: center;
-    column-gap: .25rem;
-    font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  column-gap: .25rem;
+  font-weight: 600;
 }
 
 .logo i {
-    font-weight: initial;
-    font-size: 1.25rem;
+  font-weight: initial;
+  font-size: 1.25rem;
 }
 
 .nav-icons {
-    display: none;
+  position: relative;
+  width: 32px;
+  height: 32px;
 }
 
 .nav-abrir, 
 .nav-fechar {
-    font-size: 1.25rem;
-    cursor: pointer;
+  position: absolute;
+  width: max-content;
+  height: max-content;
+  inset: 0;
+  margin: auto;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: opacity .1s, transform .4s;
 }
 
-.nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+.nav-fechar {
+  opacity: 0;
+}
+
+.image{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image img{
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 3px black;
+  border: 3px solid #fff;
+}
+
+/* Nav Responsivo */
+@media screen and (max-width: 1118px) {
+  .nav-menu {
+    position: absolute;
+    left: 0;
+    top: 2.5rem;
+    width: 100%;
+    height: calc(100vh - 3.5rem);
+    overflow: auto;
+    pointer-events: none;
+    opacity: 0;
+    transition: top .4s, opacity .3s;
+  }
+  .nav-menu::-webkit-scrollbar {
+    width: 0;
+  }
+  .nav-lista {
+    background-color: #06214b;
+    padding-top: 1rem;
+  }  
+
+  .image{
+    display: none;
+  }
+
 }
 
 .nav-links {
-    color: white;
-    font-weight: 600;
-    padding: 1rem;
-    transition: background-color .3s;
+  color: white;
+  background-color: #06214b;
+  font-weight: 600;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color .3s;
 }
 
 .nav-links:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+  background-color: #06214b;
 }
 
+.menu-responsivo {
+  opacity: 1;
+  top: 3.5rem;
+  pointer-events: initial;
+}
+
+/* icons */
+.icon-responsivo .nav-abrir {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+.icon-responsivo .nav-fechar {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+/* Link usuario */
 .link-usuario {
-    position: relative;
+  cursor: pointer;
 }
 
 .usuario-icon {
-    font-size: 1.25rem;
-    font-weight: initial;
-    transition: transform .4s;
+  font-size: 1.25rem;
+  font-weight: initial;
+  transition: transform .4s;
+}
+
+.usuario-links {
+  padding: 1.25rem 1.25rem 1.25rem 2.5rem;
+  color: white;
+  background-color: #06214b;
+  display: flex;
+  align-items: center;
+  column-gap: .5rem;
+  font-weight: 600;
+  transition: background-color .3s;
+}
+
+.usuario-links i {
+  font-size: 1.25rem;
+  font-weight: initial;
+}
+
+.usuario-links:hover {
+  background-color: #06214b;
 }
 
 .usuario-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #06214b;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height .4s ease-out;
-}
-
-.usuario-menu a {
-    display: block;
-    padding: 1rem 1.5rem;
-    color: white;
-    background-color: #06214b;
-    transition: background-color .3s;
-}
-
-.usuario-menu a:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease-out;
 }
 
 .link-usuario:hover .usuario-menu {
-    max-height: 300px;
-    transition: max-height .4s ease-in;
+  max-height: 1000px;
+  transition: max-height .4s ease-in;
 }
 
 .link-usuario:hover .usuario-icon {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
-@media (max-width: 768px) {
-    .nav-menu {
-        flex-direction: column;
-        background-color: #06214b;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        height: 0;
-        overflow: hidden;
-        transition: height .4s ease-out;
-    }
+/*=============== HEADER RESPONSIVO ===============*/
+@media screen and (max-width: 340px) {
+  .container {
+    margin-inline: 1rem;
+  }
 
-    .nav-menu.open {
-        height: 100vh;
-        transition: height .4s ease-in;
-    }
+  .nav-links {
+    padding-inline: 1rem;
+  }
+}
 
-    .nav-icons {
-        display: block;
-    }
+@media screen and (min-width: 1118px) {
+  .container {
+    margin-inline: auto;
+  }
+
+  .nav {
+    height: calc(3.5rem + 2rem);
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav-icons {
+    display: none;
+  }
+  .nav-lista {
+    height: 100%;
+    display: flex;
+    column-gap: 3rem;
+  }
+  .nav-links {
+    height: 100%;
+    padding: 0;
+    justify-content: initial;
+    column-gap: .25rem;
+  }
+  .nav-links:hover {
+    background-color: transparent;
+  }
+
+  .link-usuario {
+    position: relative;
+  }
+
+  .usuario-menu {
+    max-height: initial;
+    overflow: initial;
+    position: absolute;
+    left: 0;
+    top: 6rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s, top .3s;
+  }
+
+  .usuario-links {
+    padding-inline: 1rem 3.5rem;
+  }
+
+   .usuario-links {
+    padding-inline: 2rem;
+  }
+
+  .link-usuario:hover .usuario-menu {
+    opacity: 1;
+    top: 5.5rem;
+    pointer-events: initial;
+    transition: top .3s;
+  }
 }
 
 .bodyconta {
     margin-top: 5rem;
-    padding: 2rem 1rem;
+    padding: 10rem 10rem;
     background-color: #1e3662;
 }
 
