@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Music App</title>
+    <!--=============== ICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="playlist.css">
+</head>
+<body>
+    
+    <!--=============== HEADER ===============-->
+   <header class="header">
+    <div class="container">
+       <nav class="nav">
+          <a href="home.html" class="logo">
+             <i class="ri-planet-line"></i> Pomodoro
+          </a>
+
+          <!-- Nav Icons -->
+          <div class="nav-icons" id="nav-icons">
+             <i class="ri-menu-line nav-abrir"></i>
+             <i class="ri-close-line nav-fechar"></i>
+          </div>
+
+          <!-- Nav Menu -->
+          <div class="nav-menu" id="nav-menu">
+             
+             <ul class="nav-lista">
+                <li><a href="/Home/home.html" class="nav-links">Página Inicial</a></li>
+                <li><a href="/Pomodoro/pomodoro.html" class="nav-links">Pomodoro</a></li>
+                <li><a href="/Tarefas/index.html" class="nav-links">Tarefas</a></li>
+
+                <!-- Link usuário -->
+                <li class="link-usuario">
+                   <a href="#" class="nav-links">Usuário<i class="ri-arrow-down-s-line usuario-icon"></i></a>
+                   <ul class="usuario-menu">
+                      <li><a href="../ContaUsuario/contaUsuario.html" class="usuario-links"><i class="ri-user-line"></i> Conta</a></li>
+                      <li><a href="../cadastro/cadastro.html" class="usuario-links"><i class="ri-lock-line"></i> Cadastro</a></li>
+                   </ul>
+                </li>
+
+                <li><a href="../Configuracoes/configuracoes.html" class="nav-links">Configurações</a></li>
+                <li><a href="/Contatos/contatos.html" class="nav-links">Contatos</a></li>
+                 
+                <div class="image">
+                   <img src="/Pomodoro/image.png">
+                </div>
+             
+             </ul>
+          </div>
+       </nav>
+    </div>
+   </header>
+
+    <!--=============== PLAYLIST ===============-->
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav-play flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" onclick="showPlaylist('playlist1')">
+                                <i class="fas fa-music"></i> Playlist 1
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="showPlaylist('playlist2')">
+                                <i class="fas fa-music"></i> Playlist 2
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="showPlaylist('playlist3')">
+                                <i class="fas fa-music"></i> Playlist 3
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 main-content">
+                <div id="playlist1" class="playlist">
+                    <h2>Playlist 1</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Song 1
+                            <button class="btn btn-primary btn-sm" onclick="playSong('song1.mp3', 'Song 1')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Song 2
+                            <button class="btn btn-primary btn-sm" onclick="playSong('song2.mp3', 'Song 2')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Song 3
+                            <button class="btn btn-primary btn-sm" onclick="playSong('song3.mp3', 'Song 3')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div id="playlist2" class="playlist hidden">
+                    <h2>Playlist 2</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Song A
+                            <button class="btn btn-primary btn-sm" onclick="playSong('songA.mp3', 'Song A')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Song B
+                            <button class="btn btn-primary btn-sm" onclick="playSong('songB.mp3', 'Song B')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Song C
+                            <button class="btn btn-primary btn-sm" onclick="playSong('songC.mp3', 'Song C')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div id="playlist3" class="playlist hidden">
+                    <h2>Playlist 3</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Song X
+                            <button class="btn btn-primary btn-sm" onclick="playSong('songX.mp3', 'Song X')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Song Y
+                            <button class="btn btn-primary btn-sm" onclick="playSong('songY.mp3', 'Song Y')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Song Z
+                            <button class="btn btn-primary btn-sm" onclick="playSong('songZ.mp3', 'Song Z')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="audio-controls mt-3">
+                    <div class="player">
+                        <button id="playPauseBtn" class="btn btn-primary">
+                            <i id="playPauseIcon" class="fas fa-play"></i>
+                        </button>
+                        <div class="song-info">
+                            <span id="currentSong">No song playing</span>
+                            <div id="progressContainer" class="progress">
+                                <div id="progress" class="progress-bar"></div>
+                            </div>
+                        </div>
+                        <audio id="audioPlayer">
+                            <source id="audioSource" src="" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="playlist.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

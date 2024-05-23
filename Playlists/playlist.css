@@ -270,150 +270,124 @@ a {
   }
 }
 
-/*=============== POMODORO ===============*/
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
+/*=============== PLAYLIST ===============*/
+
+.sidebar {
+    min-height: 100vh;
+    padding-top: 100px;
+    color: #06214b;
 }
 
-.control {
-  margin: 9% auto;
-  width: 300px;
+.sidebar .nav-link {
+    color: #06214b;
+    font-weight: 500;
+    padding: 10px 20px;
 }
 
-.control-title {
-  display: block;
-  margin: 0 0 5px;
-  font-size: 0.6em;
-  letter-spacing: 0.25em;
+.sidebar .nav-link:hover, .sidebar .nav-link.active {
+    background-color: #06214b;
+    color: #fff;
 }
 
-.control-session,
-.control-break {
-  padding: 5px 10px;
-  width: 140px;
-  color: #06214b;
-  color: white;
-  font-size: 1.5em;
-  text-align: center;
+.main-content {
+    padding: 50px;
+    background-color: #1e3662;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin-top: 50px;
 }
 
-.control-session {
-  float: left;
+.playlist h2 {
+    border-bottom: 2px solid #06214b;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: white;
 }
 
-.control-break {
-  float: right;
+.list-group-item {
+    background-color: #06214b;
+    border: none;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
-.pomodoro {
-  position: relative;
-  margin: -14vh auto;
-  border-radius: 50%;
-  width: 300px;
-  height: 300px;
-  color: white;
-  text-align: center;
+.list-group-item:hover {
+    background-color: #374a79;
 }
 
-.title {
-  display: inline-block;
-  position: absolute;
-  top: 20px;
-  left: 0;
-  padding: 10px;
-  background: #06214b;
-  color: #fff;
-  font-size: 0.6em;
-  letter-spacing: 0.25em;
+.btn-primary {
+    background-color: #374a79;
+    border: none;
 }
 
-.status {
-  position: absolute;
-  top: 80px;
-  width: 100%;
-  color: white;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.25em;
+.btn-primary:hover {
+    background-color: #4f5f8f;
 }
 
-.timer {
-  padding-top: 110px;
-  font-size: 4em;
+.audio-controls {
+    text-align: center;
+    margin-top: 20px;
 }
 
-.button {
-  margin: 15px 5px;
-  padding: 0;
-  border: 0;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  background: #fff;
-  color: #06214b;
-  line-height: 36px;
-  cursor: pointer;
+.player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #06214b;
+    padding: 10px 20px;
+    border-radius: 10px;
 }
 
-.button:hover {
-  background: #06214b;
-  color: #fff;
+#playPauseBtn {
+    background-color: #374a79;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
 }
 
-.button:focus {
-  outline: none;
+#playPauseBtn:hover {
+    background-color: #4f5f8f;
 }
 
-.session {
-  border: 10px solid #06214b;
-  background: #374a79;
-  color: #fff;
-  -webkit-animation: glow 1.5s ease-in-out infinite alternate;
-  -moz-animation: glow 1.5s ease-in-out infinite alternate;
-  animation: glow 1.5s ease-in-out infinite alternate;
+.song-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
 }
 
-.break {
-  background: #6773a6;
-  border: 10px solid #06214b;
-  -webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5);
-  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5);
+#currentSong {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
 }
 
-@keyframes glow {
-  from {
-    -webkit-box-shadow: 0 0 30px 0 #374a79;
-    -moz-box-shadow: 0 0 30px 0 #1e3662;
-    box-shadow: 0 0 30px 0 #06214b;
-  }
-  to {
-    -webkit-box-shadow: 0 0 50px 5px #6773a6;
-    -moz-box-shadow: 0 0 50px 5px #4f5f8f;
-    box-shadow: 0 0 50px 5px #374a79;
-  }
+#progressContainer {
+    width: 100%;
+    height: 5px;
+    background-color: #374a79;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
-@media screen and (max-width: 960px) {
-
-  .control {
-    margin: 15% auto;
-  }
-
-  .pomodoro {
-    margin: -11vh auto;
-  }
+#progress {
+    width: 0;
+    height: 100%;
+    background-color: #1e3662;
+    border-radius: 5px;
 }
 
-@media screen and (max-width: 500px) {
-
-  .control {
-    margin: 40% auto;
-  }
-
-  .pomodoro {
-    margin: -10vh auto;
-  }
+.hidden {
+    display: none;
 }
