@@ -139,6 +139,8 @@
 
     <!-- Script de manipulação das tarefas -->
     <script>
+      //<div class="card" draggable="true"> <div class="status todo"></div> <div class="content">Dinamicamente.</div></div>
+
       document.addEventListener("DOMContentLoaded", function () {
         const formTask = document.getElementById("addTask");
         const taskInput = document.getElementById("task");
@@ -146,10 +148,9 @@
         formTask.addEventListener("submit", (event) => {
           event.preventDefault();
           if (taskInput.value.trim() !== "") {
-            addCard(task.value);
-            task.value = "";
+            addTask(taskInput.value.trim());
+            taskInput.value = "";
           }
-          event.preventDefault();
         });
 
         firebase.auth().onAuthStateChanged((user) => {
@@ -160,38 +161,7 @@
           }
         });
 
-        function loadTasks(userId) {
-          firebase
-            .database()
-            .ref("/tasks/" + userId)
-            .once("value", (snapshot) => {
-              const tasks = snapshot.val();
-              if (tasks) {
-                for (const taskId in tasks) {
-                  addCard(tasks[taskId].content);
-                }
-              }
-            });
-        }
-
-        function addCard(value) {
-
-          const column = document.querySelector(task.status);
-          const newCard = document.createElement("div");
-          newCard.classList.add("card");
-          newCard.draggable = true;
-          newCard.innerHTML =
-            `
-    <div class="status todo"></div> 
-    <div class="content"><p>` +
-            value +
-            `</p></div>
-  `;
-          newCard.addEventListener("dragstart", dragStart);
-          newCard.addEventListener("drag", drag);
-          newCard.addEventListener("dragend", dragEnd);
-          todo.appendChild(newCard);
-
+        function addTask(value) {
           const userId = firebase.auth().currentUser.uid;
           const taskId = firebase.database().ref().child("tasks").push().key;
           const taskData = {
@@ -202,37 +172,51 @@
           const updates = {};
           updates["/tasks/" + userId + "/" + taskId] = taskData;
           firebase.database().ref().update(updates);
+          addCard(taskData);
         }
 
-        const cards = document.querySelectorAll(".card");
+        function loadTasks(userId) {
+          firebase
+            .database()
+            .ref("/tasks/" + userId)
+            .once("value", (snapshot) => {
+              const tasks = snapshot.val();
+              if (tasks) {
+                for (const taskId in tasks) {
+                  addCard(tasks[taskId]);
+                }
+              }
+            });
+        }
+
+        function addCard(task) {
+          const column = document.getElementById(task.status);
+          const newCard = document.createElement("div");
+          newCard.classList.add("card", task.status);
+          newCard.draggable = true;
+          newCard.dataset.id = task.id;
+          newCard.innerHTML = `
+    <div class="content"><p>${task.content}</p></div>
+    <div class="status-bar ${task.status}"></div>
+  `;
+          newCard.addEventListener("dragstart", dragStart);
+          newCard.addEventListener("drag", drag);
+          newCard.addEventListener("dragend", dragEnd);
+          column.appendChild(newCard);
+        }
+
         const dropZones = document.querySelectorAll(".quadro-tarefas");
 
-        cards.forEach((card) => {
-          card.addEventListener("dragstart", dragStart);
-          card.addEventListener("drag", drag);
-          card.addEventListener("dragend", dragEnd);
+        dropZones.forEach((dropZone) => {
+          dropZone.addEventListener("dragenter", dragEnter);
+          dropZone.addEventListener("dragover", dragOver);
+          dropZone.addEventListener("dragleave", dragLeave);
+          dropZone.addEventListener("drop", drop);
         });
 
         function dragStart() {
           dropZones.forEach((dropZone) => dropZone.classList.add("highlight"));
           this.classList.add("dragging");
-
-          switch (this.parentElement.id) {
-            case "todo":
-              this.firstElementChild.classList.remove("todo");
-              break;
-            case "doing":
-              this.firstElementChild.classList.remove("doing");
-              break;
-            case "done":
-              this.firstElementChild.classList.remove("done");
-              break;
-            case "garbage":
-              this.firstElementChild.classList.remove("todo");
-              break;
-            default:
-              break;
-          }
         }
 
         function drag() {}
@@ -242,39 +226,15 @@
             dropZone.classList.remove("highlight")
           );
           this.classList.remove("dragging");
-
-          switch (this.parentElement.id) {
-            case "todo":
-              this.firstElementChild.classList.add("todo");
-              break;
-            case "doing":
-              this.firstElementChild.classList.add("doing");
-              break;
-            case "done":
-              this.firstElementChild.classList.add("done");
-              break;
-            case "garbage":
-              this.parentElement.removeChild(this);
-              break;
-            default:
-              break;
-          }
+          updateTaskStatus(this);
         }
-
-        dropZones.forEach((dropZone) => {
-          dropZone.addEventListener("dragenter", dragEnter);
-          dropZone.addEventListener("dragover", dragOver);
-          dropZone.addEventListener("dragleave", dragLeave);
-          dropZone.addEventListener("drop", drop);
-        });
 
         function dragEnter() {}
 
-        function dragOver() {
+        function dragOver(event) {
+          event.preventDefault();
           this.classList.add("over");
-
           const cardBeingDragged = document.querySelector(".dragging");
-
           this.appendChild(cardBeingDragged);
         }
 
@@ -285,6 +245,35 @@
         function drop() {
           this.classList.remove("over");
         }
+
+        function updateTaskStatus(card) {
+          const userId = firebase.auth().currentUser.uid;
+          const taskId = card.dataset.id;
+          const newStatus = card.parentElement.id;
+          card.className = "card " + newStatus; // Atualiza a classe do card com o novo status
+
+          const updates = {};
+          updates["/tasks/" + userId + "/" + taskId + "/status"] = newStatus;
+          firebase.database().ref().update(updates);
+        }
+
+        // Adiciona a funcionalidade de excluir ao arrastar para a lixeira
+        const garbageZone = document.getElementById("garbage");
+
+        garbageZone.addEventListener("dragenter", dragEnter);
+        garbageZone.addEventListener("dragover", dragOver);
+        garbageZone.addEventListener("dragleave", dragLeave);
+        garbageZone.addEventListener("drop", function (event) {
+          event.preventDefault();
+          const cardBeingDragged = document.querySelector(".dragging");
+          const userId = firebase.auth().currentUser.uid;
+          const taskId = cardBeingDragged.dataset.id;
+          firebase
+            .database()
+            .ref("/tasks/" + userId + "/" + taskId)
+            .remove();
+          cardBeingDragged.remove();
+        });
       });
     </script>
   </body>
