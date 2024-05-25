@@ -1,0 +1,30 @@
+/* Adicione os estilos relevantes aqui */
+.profile-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .profile-pic-container img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  input[type="file"] {
+    display: block;
+    margin: 20px auto;
+  }
+  
+  button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  

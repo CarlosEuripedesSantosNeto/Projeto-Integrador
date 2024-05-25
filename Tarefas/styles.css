@@ -80,24 +80,26 @@ a {
   transition: opacity .1s, transform .4s;
 }
 
-.nav-fechar {
-  opacity: 0;
+#profilePicContainer {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* add a subtle shadow */
+  background-color: #fff; /* add a white background to the container */
+  padding: 2px; /* add some padding around the image */
 }
 
-.image{
+#profilePic {
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.image img{
-  height: 60px;
-  width: 60px;
+  object-fit: cover;
   border-radius: 50%;
-  box-shadow: 1px 1px 3px black;
-  border: 3px solid #fff;
+  transition: transform 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 /* Nav Responsivo */
@@ -456,7 +458,7 @@ a {
   background-color: #1e3662;
   border: 1px solid #06214b;
   border-radius: 5px;
-  background-image: url('./icons/trash.svg');
+  background-image: url('./icons/trash.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 50px;

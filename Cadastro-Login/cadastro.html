@@ -14,15 +14,18 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
     <script>
       const firebaseConfig = {
-        apiKey: "AIzaSyC-URj7iPqpNbt_cxOrW6T16eND-UgmIi8",
-        authDomain: "projeto-integrador-58927.firebaseapp.com",
-        projectId: "projeto-integrador-58927",
-        storageBucket: "projeto-integrador-58927.appspot.com",
-        messagingSenderId: "285779526823",
-        appId: "1:285779526823:web:8aae79ef3afa38faf14782",
+        apiKey: "AIzaSyDAVyzcKFW9W5TWCCLuXTq4RgPmTv_loEc",
+        authDomain: "banco-7eaec.firebaseapp.com",
+        databaseURL: "https://banco-7eaec-default-rtdb.firebaseio.com",
+        projectId: "banco-7eaec",
+        storageBucket: "banco-7eaec.appspot.com",
+        messagingSenderId: "273595281648",
+        appId: "1:273595281648:web:f24fe2f7d6066e46a69235",
+        measurementId: "G-T6PG24C641",
       };
 
       firebase.initializeApp(firebaseConfig);
@@ -31,7 +34,7 @@
         const name = document.querySelector('input[name="name"]').value;
         const email = document.querySelector('input[name="email"]').value;
         const password = document.querySelector('input[name="password"]').value;
-        const pfpUrl = document.querySelector('input[name="pfp"]').value;
+        const pfpInput = document.getElementById("pfpInput");
 
         firebase
           .auth()
@@ -39,25 +42,57 @@
           .then((userCredential) => {
             const user = userCredential.user;
 
-            // Salvar a URL da foto de perfil no banco de dados
-            firebase
-              .database()
-              .ref("users/" + user.uid)
-              .set({
-                name: name,
-                email: email,
-                pfpUrl: pfpUrl,
-              });
-
-            console.log("Cadastro bem-sucedido: ", user);
-            alert("Conta criada com sucesso!");
-            window.location.href = "../Home/home.html";
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.error("Erro durante o cadastro: ", errorMessage);
+            if (pfpInput.files.length > 0) {
+              uploadProfilePicture(user.uid, pfpInput.files[0])
+                .then((uploadTaskSnapshot) => {
+                  const pfpUrl = uploadTaskSnapshot.ref.getDownloadURL();
+                  return pfpUrl;
+                })
+                .then((url) => {
+                  return firebase
+                    .database()
+                    .ref("users/" + user.uid)
+                    .update({
+                      name: name,
+                      email: email,
+                      profilePicture: url,
+                    });
+                })
+                .then(() => {
+                  console.log("Cadastro bem-sucedido: ", user);
+                  alert("Conta criada com sucesso!");
+                  window.location.href = "../Home/home.html"; // Redirecionamento após a conclusão bem-sucedida
+                })
+                .catch((error) => {
+                  console.error("Erro durante o upload da imagem: ", error);
+                  alert("Erro durante o upload da imagem: " + error);
+                });
+            } else {
+              firebase
+                .database()
+                .ref("users/" + user.uid)
+                .set({
+                  name: name,
+                  email: email,
+                })
+                .then(() => {
+                  console.log("Cadastro bem-sucedido: ", user);
+                  alert("Conta criada com sucesso!");
+                  window.location.href = "../Home/home.html"; // Redirecionamento após a conclusão bem-sucedida
+                })
+                .catch((error) => {
+                  console.error("Erro ao criar conta: ", error);
+                  alert("Erro ao criar conta: " + error);
+                });
+            }
           });
+      }
+
+      function uploadProfilePicture(uid, file) {
+        const storageRef = firebase.storage().ref();
+        const fileRef = storageRef.child(`profilePictures/${uid}.jpg`);
+
+        return fileRef.put(file);
       }
 
       function logarConta() {
@@ -100,12 +135,7 @@
               name="password"
               placeholder="Password"
             />
-            <input
-              type="text"
-              id="pfp"
-              name="pfp"
-              placeholder="Foto de Perfil"
-            />
+            <input type="file" id="pfpInput" name="pfp" accept="image/*" />
 
             <button type="button" onclick="criarConta()">Inscrever-se</button>
           </form>

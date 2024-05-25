@@ -71,8 +71,8 @@
                 <a href="/Contatos/contatos.html" class="nav-links">Contatos</a>
               </li>
             </ul>
-            <div class="image">
-              <img src="/Home/image.png" />
+            <div id="profilePicContainer">
+              <img id="profilePic" src="" alt="Profile Picture" />
             </div>
           </div>
         </nav>
@@ -126,12 +126,13 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <script>
       const firebaseConfig = {
-        apiKey: "AIzaSyC-URj7iPqpNbt_cxOrW6T16eND-UgmIi8",
-        authDomain: "projeto-integrador-58927.firebaseapp.com",
-        projectId: "projeto-integrador-58927",
-        storageBucket: "projeto-integrador-58927.appspot.com",
-        messagingSenderId: "285779526823",
-        appId: "1:285779526823:web:8aae79ef3afa38faf14782",
+        apiKey: "AIzaSyDAVyzcKFW9W5TWCCLuXTq4RgPmTv_loEc",
+        authDomain: "banco-7eaec.firebaseapp.com",
+        projectId: "banco-7eaec",
+        storageBucket: "banco-7eaec.appspot.com",
+        messagingSenderId: "273595281648",
+        appId: "1:273595281648:web:f24fe2f7d6066e46a69235",
+        measurementId: "G-T6PG24C641",
       };
 
       firebase.initializeApp(firebaseConfig);
@@ -149,7 +150,6 @@
             addCard(task.value);
             task.value = "";
           }
-          event.preventDefault();
         });
 
         firebase.auth().onAuthStateChanged((user) => {
@@ -163,54 +163,66 @@
         function loadTasks(userId) {
           firebase
             .database()
-            .ref("/tasks/" + userId)
+            .ref("/tarefas/" + userId)
             .once("value", (snapshot) => {
               const tasks = snapshot.val();
               if (tasks) {
+                // Limpa os quadros de tarefas antes de carregá-las
+                clearTaskBoards();
+
                 for (const taskId in tasks) {
-                  addCard(tasks[taskId].content);
+                  addCard(tasks[taskId].content, tasks[taskId].status, taskId);
                 }
               }
             });
         }
 
-        function addCard(value) {
+        function clearTaskBoards() {
+          document.getElementById("todo").innerHTML = "";
+          document.getElementById("doing").innerHTML = "";
+          document.getElementById("done").innerHTML = "";
+          document.getElementById("garbage").innerHTML = "";
+        }
 
-          const column = document.querySelector(task.status);
+        function addCard(value, status = "todo", taskId = null) {
+          const column = document.getElementById(status);
           const newCard = document.createElement("div");
           newCard.classList.add("card");
           newCard.draggable = true;
+          newCard.dataset.id =
+            taskId || firebase.database().ref().child("tarefas").push().key;
           newCard.innerHTML =
             `
-    <div class="status todo"></div> 
-    <div class="content"><p>` +
+            <div class="status ${status}"></div> 
+            <div class="content"><p>` +
             value +
             `</p></div>
-  `;
+          `;
           newCard.addEventListener("dragstart", dragStart);
           newCard.addEventListener("drag", drag);
           newCard.addEventListener("dragend", dragEnd);
-          todo.appendChild(newCard);
+          column.appendChild(newCard);
 
-          const userId = firebase.auth().currentUser.uid;
-          const taskId = firebase.database().ref().child("tasks").push().key;
-          const taskData = {
-            id: taskId,
-            content: value,
-            status: "todo",
-          };
-          const updates = {};
-          updates["/tasks/" + userId + "/" + taskId] = taskData;
-          firebase.database().ref().update(updates);
+          if (!taskId) {
+            const userId = firebase.auth().currentUser.uid;
+            const taskData = {
+              id: newCard.dataset.id,
+              content: value,
+              status: status,
+            };
+            const updates = {};
+            updates["/tarefas/" + userId + "/" + newCard.dataset.id] = taskData;
+            firebase.database().ref().update(updates);
+          }
         }
 
-        const cards = document.querySelectorAll(".card");
         const dropZones = document.querySelectorAll(".quadro-tarefas");
 
-        cards.forEach((card) => {
-          card.addEventListener("dragstart", dragStart);
-          card.addEventListener("drag", drag);
-          card.addEventListener("dragend", dragEnd);
+        dropZones.forEach((dropZone) => {
+          dropZone.addEventListener("dragenter", dragEnter);
+          dropZone.addEventListener("dragover", dragOver);
+          dropZone.addEventListener("dragleave", dragLeave);
+          dropZone.addEventListener("drop", drop);
         });
 
         function dragStart() {
@@ -246,31 +258,29 @@
           switch (this.parentElement.id) {
             case "todo":
               this.firstElementChild.classList.add("todo");
+              updateTaskStatus(this, "todo");
               break;
             case "doing":
               this.firstElementChild.classList.add("doing");
+              updateTaskStatus(this, "doing");
               break;
             case "done":
               this.firstElementChild.classList.add("done");
+              updateTaskStatus(this, "done");
               break;
             case "garbage":
               this.parentElement.removeChild(this);
+              deleteTask(this);
               break;
             default:
               break;
           }
         }
 
-        dropZones.forEach((dropZone) => {
-          dropZone.addEventListener("dragenter", dragEnter);
-          dropZone.addEventListener("dragover", dragOver);
-          dropZone.addEventListener("dragleave", dragLeave);
-          dropZone.addEventListener("drop", drop);
-        });
-
         function dragEnter() {}
 
-        function dragOver() {
+        function dragOver(event) {
+          event.preventDefault();
           this.classList.add("over");
 
           const cardBeingDragged = document.querySelector(".dragging");
@@ -285,6 +295,60 @@
         function drop() {
           this.classList.remove("over");
         }
+
+        function updateTaskStatus(card, newStatus) {
+          const userId = firebase.auth().currentUser.uid;
+          const taskId = card.dataset.id;
+
+          const updates = {};
+          updates["/tarefas/" + userId + "/" + taskId + "/status"] = newStatus;
+          firebase.database().ref().update(updates);
+        }
+
+        function deleteTask(card) {
+          const userId = firebase.auth().currentUser.uid;
+          const taskId = card.dataset.id;
+
+          firebase
+            .database()
+            .ref("/tarefas/" + userId + "/" + taskId)
+            .remove();
+        }
+
+        const garbageZone = document.getElementById("garbage");
+
+        garbageZone.addEventListener("dragenter", dragEnter);
+        garbageZone.addEventListener("dragover", dragOver);
+        garbageZone.addEventListener("dragleave", dragLeave);
+        garbageZone.addEventListener("drop", function (event) {
+          event.preventDefault();
+          const cardBeingDragged = document.querySelector(".dragging");
+          const userId = firebase.auth().currentUser.uid;
+          const taskId = cardBeingDragged.dataset.id;
+          firebase
+            .database()
+            .ref("/tarefas/" + userId + "/" + taskId)
+            .remove();
+          cardBeingDragged.remove();
+        });
+
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            const userId = user.uid;
+
+            firebase
+              .database()
+              .ref(`users/${userId}`)
+              .once("value")
+              .then((snapshot) => {
+                const userData = snapshot.val();
+                if (userData && userData.profilePicture) {
+                  document.getElementById("profilePic").src =
+                    userData.profilePicture;
+                }
+              });
+          }
+        });
       });
     </script>
   </body>

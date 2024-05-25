@@ -22,7 +22,11 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"
     />
+
     <title>Página Inicial</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
   </head>
   <body>
     <!--=============== HEADER ===============-->
@@ -56,7 +60,7 @@
 
               <!-- Link usuário -->
               <li class="link-usuario">
-                <a href="#" class="nav-links"
+                <a href="/Teste/index.html" class="nav-links"
                   >Usuário<i class="ri-arrow-down-s-line usuario-icon"></i
                 ></a>
                 <ul class="usuario-menu">
@@ -78,8 +82,8 @@
                 <a href="/Contatos/contatos.html" class="nav-links">Contatos</a>
               </li>
 
-              <div class="image">
-                <img src="/Pomodoro/image.png" />
+              <div id="profilePicContainer">
+                <img id="profilePic" src="" alt="Profile Picture" />
               </div>
             </ul>
           </div>
@@ -111,8 +115,42 @@
 
       <section id="s3" class="step"></section>
     </footer>
-
     <script src="home.js"></script>
     <script src="main.js"></script>
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyDAVyzcKFW9W5TWCCLuXTq4RgPmTv_loEc",
+        authDomain: "banco-7eaec.firebaseapp.com",
+        databaseURL: "https://banco-7eaec-default-rtdb.firebaseio.com",
+        projectId: "banco-7eaec",
+        storageBucket: "banco-7eaec.appspot.com",
+        messagingSenderId: "273595281648",
+        appId: "1:273595281648:web:f24fe2f7d6066e46a69235",
+        measurementId: "G-T6PG24C641",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+
+      document.addEventListener("DOMContentLoaded", () => {
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            const userId = user.uid;
+
+            firebase
+              .database()
+              .ref(`users/${userId}`)
+              .once("value")
+              .then((snapshot) => {
+                const userData = snapshot.val();
+                if (userData && userData.profilePicture) {
+                  document.getElementById("profilePic").src =
+                    userData.profilePicture;
+                }
+              });
+          }
+        });
+      });
+    </script>
   </body>
 </html>

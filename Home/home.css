@@ -10,10 +10,10 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  font-size: .938rem;
+  font-size: 0.938rem;
   background-color: #1e3662;
   overflow-y: scroll;
-  margin-bottom: 5rem; 
+  margin-bottom: 5rem;
 }
 
 ul {
@@ -36,7 +36,7 @@ a {
   left: 0;
   width: 100%;
   background-color: #06214b;
-  box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
+  box-shadow: 0 2px 16px hsla(220, 32%, 8%, 0.3);
   z-index: 100;
 }
 
@@ -45,8 +45,8 @@ a {
   height: 3.5rem;
 }
 
-.logo, 
-.nav-abrir, 
+.logo,
+.nav-abrir,
 .nav-fechar {
   color: white;
 }
@@ -54,7 +54,7 @@ a {
 .logo {
   display: inline-flex;
   align-items: center;
-  column-gap: .25rem;
+  column-gap: 0.25rem;
   font-weight: 600;
 }
 
@@ -69,7 +69,7 @@ a {
   height: 32px;
 }
 
-.nav-abrir, 
+.nav-abrir,
 .nav-fechar {
   position: absolute;
   width: max-content;
@@ -78,14 +78,14 @@ a {
   margin: auto;
   font-size: 1.25rem;
   cursor: pointer;
-  transition: opacity .1s, transform .4s;
+  transition: opacity 0.1s, transform 0.4s;
 }
 
 .nav-fechar {
   opacity: 0;
 }
 
-.image{
+.image {
   width: 100%;
   height: 100%;
   display: flex;
@@ -93,7 +93,7 @@ a {
   align-items: center;
 }
 
-.image img{
+.image img {
   height: 60px;
   width: 60px;
   border-radius: 50%;
@@ -112,7 +112,7 @@ a {
     overflow: auto;
     pointer-events: none;
     opacity: 0;
-    transition: top .4s, opacity .3s;
+    transition: top 0.4s, opacity 0.3s;
   }
   .nav-menu::-webkit-scrollbar {
     width: 0;
@@ -122,7 +122,7 @@ a {
     padding-top: 1rem;
   }
 
-  .image{
+  .image {
     display: none;
   }
 }
@@ -135,7 +135,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: background-color .3s;
+  transition: background-color 0.3s;
 }
 
 .nav-links:hover {
@@ -166,7 +166,7 @@ a {
 .usuario-icon {
   font-size: 1.25rem;
   font-weight: initial;
-  transition: transform .4s;
+  transition: transform 0.4s;
 }
 
 .usuario-links {
@@ -175,9 +175,9 @@ a {
   background-color: #06214b;
   display: flex;
   align-items: center;
-  column-gap: .5rem;
+  column-gap: 0.5rem;
   font-weight: 600;
-  transition: background-color .3s;
+  transition: background-color 0.3s;
 }
 
 .usuario-links i {
@@ -192,18 +192,39 @@ a {
 .usuario-menu {
   max-height: 0;
   overflow: hidden;
-  transition: max-height .4s ease-out;
+  transition: max-height 0.4s ease-out;
 }
 
 .link-usuario:hover .usuario-menu {
   max-height: 1000px;
-  transition: max-height .4s ease-in;
+  transition: max-height 0.4s ease-in;
 }
 
 .link-usuario:hover .usuario-icon {
   transform: rotate(180deg);
 }
 
+#profilePicContainer {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* add a subtle shadow */
+  background-color: #fff; /* add a white background to the container */
+  padding: 2px; /* add some padding around the image */
+}
+
+#profilePic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
 /*=============== HEADER RESPONSIVO ===============*/
 @media screen and (max-width: 340px) {
   .container {
@@ -237,7 +258,7 @@ a {
     height: 100%;
     padding: 0;
     justify-content: initial;
-    column-gap: .25rem;
+    column-gap: 0.25rem;
   }
   .nav-links:hover {
     background-color: transparent;
@@ -255,7 +276,7 @@ a {
     top: 6rem;
     opacity: 0;
     pointer-events: none;
-    transition: opacity .3s, top .3s;
+    transition: opacity 0.3s, top 0.3s;
   }
 
   .usuario-links {
@@ -266,71 +287,71 @@ a {
     opacity: 1;
     top: 5.5rem;
     pointer-events: initial;
-    transition: top .3s;
+    transition: top 0.3s;
   }
 }
 
 /*=============== LANDING PAGE ===============*/
 
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 main div:first-child {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 10vw;
-    width: 30vw;
-    margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10vw;
+  width: 30vw;
+  margin-top: 70px;
 }
 
 main div:first-child h3 {
-    font-size: 1.05rem;
-    color: white;
+  font-size: 1.05rem;
+  color: white;
 }
 
 main div:first-child h1 {
-    font-size: 2.6rem;
-    color: white;
+  font-size: 2.6rem;
+  color: white;
 }
 
 #typing-bar {
-    font-size: 2.3rem;
-    color: white;
+  font-size: 2.3rem;
+  color: white;
 }
 
 main div:first-child #typing-bar {
-    animation: blink 0.5s infinite linear;
+  animation: blink 0.5s infinite linear;
 }
 
 main > div:last-child {
-    width: 60vw;
+  width: 60vw;
 }
 
 main div:last-child {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 main div:last-child img {
-    width: 40%;
-    height: 45vh;
-    margin-top: 110px;
-    background: #06214b;
-    border-radius: 48px;
+  width: 40%;
+  height: 45vh;
+  margin-top: 110px;
+  background: #06214b;
+  border-radius: 48px;
 }
 
-
 @keyframes blink {
-    0%, 100% {
-        opacity: 1;
-    }
+  0%,
+  100% {
+    opacity: 1;
+  }
 
-    50% {
-        opacity: 0;
-    }
+  50% {
+    opacity: 0;
+  }
 }

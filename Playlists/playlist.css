@@ -85,20 +85,26 @@ a {
   opacity: 0;
 }
 
-.image{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#profilePicContainer {
+  width: 60px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* add a subtle shadow */
+  background-color: #fff; /* add a white background to the container */
+  padding: 2px; /* add some padding around the image */
 }
 
-.image img{
-  height: 60px;
-  width: 60px;
+#profilePic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 50%;
-  box-shadow: 1px 1px 3px black;
-  border: 3px solid #fff;
+  transition: transform 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 /* Nav Responsivo */
