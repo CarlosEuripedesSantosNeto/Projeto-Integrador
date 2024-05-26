@@ -44,8 +44,8 @@ a {
   height: 3.5rem;
 }
 
-.logo, 
-.nav-abrir, 
+.logo,
+.nav-abrir,
 .nav-fechar {
   color: white;
 }
@@ -68,7 +68,7 @@ a {
   height: 32px;
 }
 
-.nav-abrir, 
+.nav-abrir,
 .nav-fechar {
   position: absolute;
   width: max-content;
@@ -274,10 +274,34 @@ a {
   }
 }
 
+/*==========Temas===========*/
+
+.light-theme {
+  background-color: #fff;
+  color: #1e3662;
+}
+
+.light-theme .header {
+  background-color: #fff;
+}
+
+.light-theme .nav-links {
+  background-color: #fff;
+  color: #1e3662;
+}
+
+.light-theme .logo {
+  color: #1e3662;
+}
+
 .bodyconfiguracoes {
   margin-top: 5rem;
   padding: 5rem 5rem;
   background-color: #1e3662;
+}
+
+.light-theme .bodyconfiguracoes {
+  background-color: #fff;
 }
 
 .conteudoconfiguracoes {
@@ -332,6 +356,10 @@ a {
   background-color: #041530;
 }
 
+.light-theme .buttonsenha {
+  background-color: #1e3662;
+}
+
 .switch {
   position: relative;
   display: inline-block;
@@ -374,4 +402,12 @@ input:checked + .slider {
 
 input:checked + .slider:before {
   transform: translateX(26px);
+}
+
+.light-theme .slider {
+  background-color: #1e3662;
+}
+
+.light-theme .slider:before {
+  background-color: #fff;
 }
