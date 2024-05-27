@@ -189,6 +189,10 @@ a {
   background-color: #06214b;
 }
 
+.light-theme .usuario-links{
+  background-color: #374a79;
+}
+
 .usuario-menu {
   max-height: 0;
   overflow: hidden;
@@ -425,8 +429,27 @@ input:checked + .slider:before {
 }
 */
 
-/*
+
 .light-theme .col-md-9{
-  background-color: white;
+  background-color: #6773a6;
 }
-*/
+
+.light-theme .list-group-item{
+  background-color: #1e3662;
+  color: rgb(255, 255, 255);
+}
+.light-theme .btn{
+  color: rgb(255, 255, 255);
+}
+
+.light-theme .player{
+  background-color: #1e3662;
+}
+
+.light-theme .bodyconta{
+  background-color: #6773a6;
+}
+
+.light-theme footer{
+  background-color: #374a79;
+}
