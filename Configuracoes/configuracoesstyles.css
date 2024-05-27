@@ -277,21 +277,21 @@ a {
 /*==========Temas===========*/
 
 .light-theme {
-  background-color: #fff;
+  background-color: #6773a6;
   color: #1e3662;
 }
 
 .light-theme .header {
-  background-color: #fff;
+  background-color: #374a79;
 }
 
 .light-theme .nav-links {
-  background-color: #fff;
-  color: #1e3662;
+  background-color: #374a79;
+  color: #fff;
 }
 
 .light-theme .logo {
-  color: #1e3662;
+  color: #fff;
 }
 
 .bodyconfiguracoes {
@@ -301,7 +301,7 @@ a {
 }
 
 .light-theme .bodyconfiguracoes {
-  background-color: #fff;
+  background-color: #6773a6;
 }
 
 .conteudoconfiguracoes {
@@ -397,17 +397,36 @@ a {
 }
 
 input:checked + .slider {
-  background-color: #06214b;
+  background-color: #2196F3;
 }
 
 input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-.light-theme .slider {
+.pomodoro-session {
+  margin-top: 3.5rem;
+  text-align: center;
   background-color: #1e3662;
+  padding: 2rem;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.light-theme .slider:before {
+.light-theme .pomodoro-session {
   background-color: #fff;
+  color: #1e3662;
 }
+
+/*
+.light-theme .tarefas{
+  background-color: white;
+}
+*/
+
+/*
+.light-theme .col-md-9{
+  background-color: white;
+}
+*/
