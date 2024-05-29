@@ -8,6 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../Configuracoes/configuracoesstyles.css">
 </head>
 <body>
 
@@ -63,7 +64,7 @@
       <h2>PENDENTE</h2>
       <div class="quadro-tarefas" id="todo">
         <!-- Cartões de tarefas -->
-        <div class="card" draggable="true">
+        <div class="card-tarefas" draggable="true">
           <div class="status todo"></div>
           <div class="content">Está é uma tarefa em espera! (Experimente adicionar outras tarefas logo abaixo.)</div>
         </div>
@@ -73,7 +74,7 @@
     <div class="tarefas">
       <h2>EM ANDAMENTO</h2>
       <div class="quadro-tarefas" id="doing">
-        <div class="card" draggable="true">
+        <div class="card-tarefas" draggable="true">
           <div class="status doing"></div>
           <div class="content">Está é uma tarefa sendo feita! (Experimente arrasta-lá para alguma outra coluna.)</div>
         </div>
@@ -84,7 +85,7 @@
     <div class="tarefas">
       <h2>FEITO</h2>
       <div class="quadro-tarefas" id="done">
-        <div class="card" draggable="true">
+        <div class="card-tarefas" draggable="true">
           <div class="status done"></div>
           <div class="content">Está é uma tarefa concluída! (Experimente remove-la do quadro arrastando até a lixeira.)</div>
         </div>
@@ -112,6 +113,7 @@
 
   <script src="app.js"></script>
   <script src="/Home/main.js"></script>
+  <script src="../Configuracoes/configuracoesscript.js"></script>
 
 </body>
 </html>

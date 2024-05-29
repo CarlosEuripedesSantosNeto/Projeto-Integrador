@@ -310,7 +310,7 @@ a {
   transition: .2s;
 }
 
-.card{
+.card-tarefas{
   width: 100%;
   height: auto;
   padding: 15px;
@@ -321,15 +321,14 @@ a {
   font-weight: 600;
   font-size: 18px;
   word-wrap: break-word;
-
   transition: .2s;
 }
 
-.card .content{
+.card-tarefas .content{
   color: white;
 }
 
-.card:hover{
+.card-tarefas:hover{
   cursor: move;
 }
 

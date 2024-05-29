@@ -331,7 +331,7 @@ li .li-play:hover {
   box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.player {
+.player-music {
   max-width: 800px;
   margin: 0 auto;
   display: flex;
