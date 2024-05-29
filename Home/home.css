@@ -11,7 +11,7 @@
 body {
   font-family: "Montserrat", sans-serif;
   font-size: 0.938rem;
-  background-color: #1e3662;
+  background-color: #fcfff2;
   overflow-y: scroll;
   margin-bottom: 5rem;
 }
@@ -33,10 +33,9 @@ a {
 .header {
   position: fixed;
   top: 0;
+  background-color: #06214b;
   left: 0;
   width: 100%;
-  background-color: #06214b;
-  box-shadow: 0 2px 16px hsla(220, 32%, 8%, 0.3);
   z-index: 100;
 }
 
@@ -48,7 +47,7 @@ a {
 .logo,
 .nav-abrir,
 .nav-fechar {
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .logo {
@@ -118,7 +117,7 @@ a {
     width: 0;
   }
   .nav-lista {
-    background-color: #06214b;
+
     padding-top: 1rem;
   }
 
@@ -128,8 +127,8 @@ a {
 }
 
 .nav-links {
-  color: white;
-  background-color: #06214b;
+  color: rgb(255, 255, 255);
+
   font-weight: 600;
   padding: 1.25rem 1.5rem;
   display: flex;
