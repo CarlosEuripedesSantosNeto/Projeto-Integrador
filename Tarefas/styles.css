@@ -473,14 +473,39 @@ a {
   height: 100%;
 }
 
-@media all and (max-width: 600px){
+@media all and (max-width: 960px){
   
   .tarefas-container{
     flex-direction: column;
     justify-content: center;
+    align-items: center;
   }
+
   .tarefas{
-    min-height: 30vh;
-    margin-bottom: 15px;
+    min-width: 40vh;
+    margin: 12vh 0 0 15px;
   }
+
+  .info{
+    display: none;
+  }
+
+  .footer{
+    padding: 50px;
+  }
+
+  .task{
+    width: 50%;
+    height: 100px;
+  }
+
+  .task h2{
+    font-size: 85%;
+  }
+
+  .task input,
+  .task button{
+    margin-top: 2vh;
+  }
+
 }

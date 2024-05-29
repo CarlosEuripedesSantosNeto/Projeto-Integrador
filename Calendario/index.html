@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!--=============== ICONS ===============-->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css"> 
+  <title>Calendário</title>
+</head>
+<body>
+
+   <!--=============== HEADER ===============-->
+   <header class="header">
+    <div class="container">
+       <nav class="nav">
+          <a href="/Home/home.html" class="logo">
+             <i class="ri-planet-line"></i> Pomodoro
+          </a>
+
+          <!-- Nav Icons -->
+          <div class="nav-icons" id="nav-icons">
+             <i class="ri-menu-line nav-abrir"></i>
+             <i class="ri-close-line nav-fechar"></i>
+          </div>
+
+          <!-- Nav Menu -->
+       <div class="nav-menu" id="nav-menu">  
+          <ul class="nav-lista">
+             <li><a href="/Home/home.html" class="nav-links">Página Inicial</a></li>
+             <li><a href="/Pomodoro/Pomodoro.html" class="nav-links">Pomodoro</a></li>
+             <li><a href="/Tarefas/index.html" class="nav-links">Tarefas</a></li>
+             <li><a href="/Playlists/playlist.html" class="nav-links">Playlist</a></li>
+             <!-- Link usuário -->
+             <li class="link-usuario">
+                <a href="#" class="nav-links">Usuário<i class="ri-arrow-down-s-line usuario-icon"></i></a>
+                <ul class="usuario-menu">
+                   <li><a href="/ContaUsuario/contaUsuario.html" class="usuario-links"><i class="ri-user-line"></i> Conta</a></li>
+                   <li><a href="../cadastro/cadastro.html" class="usuario-links"><i class="ri-lock-line"></i> Cadastro</a></li>
+                </ul>
+             </li>
+
+             <li><a href="/Configuracoes/configuracoes.html" class="nav-links">Configurações</a></li>
+             <li><a href="/Contatos/contatos.html" class="nav-links">Contatos</a></li>
+            
+             
+             <div class="image">
+                <img src="image.png">
+             </div>
+          </ul>
+       </div>
+
+       </nav>
+    </div>
+ </header>
+
+ <!--=============== CALENDÁRIO ===============-->
+
+  <div class="container-calendario">
+    <!-- Left section: Calendar -->
+    <div class="left">
+      <div class="calendar">
+        <!-- Calendar month navigation -->
+        <div class="month">
+          <i class="fas fa-angle-left prev"></i>
+          <div class="date">Dezembro 2015</div>
+          <i class="fas fa-angle-right next"></i>
+        </div>
+        <!-- Calendar weekdays -->
+        <div class="weekdays">
+          <div>Dom</div>
+          <div>Seg</div>
+          <div>Ter</div>
+          <div>Qua</div>
+          <div>Qui</div>
+          <div>Sex</div>
+          <div>Sab</div>
+        </div>
+        <!-- Calendar days -->
+        <div class="days"></div>
+        <!-- Go to today and specific date input -->
+        <div class="goto-today">
+          <div class="goto">
+            <input type="text" placeholder="mês / ano" class="date-input" />
+            <button class="goto-btn">Ir</button>
+          </div>
+          <button class="today-btn">Voltar</button>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Right section: Event details -->
+    <div class="right">
+      <!-- Display current selected date -->
+      <div class="today-date">
+        <div class="event-day">Qua</div>
+        <div class="event-date">12th December 2022</div>
+      </div>
+      <!-- Event list -->
+      <div class="events"></div>
+      <!-- Add event form -->
+      <div class="add-event-wrapper">
+        <div class="add-event-header">
+          <div class="title">Adicionar Evento</div>
+          <i class="fas fa-times close"></i>
+        </div>
+        <div class="add-event-body">
+          <div class="add-event-input">
+            <input type="text" placeholder="Nome do Evento" class="event-name" />
+          </div>
+          <div class="add-event-input">
+            <input type="text" placeholder="Começo" class="event-time-from" />
+          </div>
+          <div class="add-event-input">
+            <input type="text" placeholder="Fim" class="event-time-to" />
+          </div>
+        </div>
+        <div class="add-event-footer">
+          <button class="add-event-btn">Adicionar Evento</button>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Add event button -->
+    <button class="add-event">
+      <i class="fas fa-plus"></i>
+    </button>
+  </div>
+  <script src="js.js"></script>
+</body>
+</html>
