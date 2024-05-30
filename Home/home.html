@@ -4,16 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="/Configuracoes/configuracoesstyles.css">
     <!--=============== ICONS ===============-->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Configuracoes/configuracoesstyles.css">
     <title>Página Inicial</title>
 </head>
 <body>
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body id="top">
 
    <!--=============== HEADER ===============-->
    <header class="header">
@@ -60,47 +67,155 @@
     </div>
    </header>
 
-   <!--=============== PLAYLIST ===============-->
-
+    <!--=============== MAIN CONTENT ===============-->
     <main>
-        <div>
-            <h3>
-                Nossos ferramentas
-            </h3>
-    
+        <div class="content">
+            <h3>Nossas ferramentas</h3>
             <h1>
                 <span id="highlight">E-Commerce</span>
                 <span id="typing-bar">|</span>
             </h1>
         </div>
-
-        <div>
-            <img id="page-image" src="./assets/Internet.svg" alt="">
+        <div class="image-container">
+            <img id="page-image" src="./assets/Internet.svg" alt="Internet Illustration">
         </div>
     </main>
 
-    <footer>
-        <section id="s1" class="step current">
-            <small>Passo 1:</small>
-            <h3>Escolha sua página</h3>
-            <p>Escolha o que mais combina com você em nossa vasto catalogo de opções!</p>
-        </section>
+      <section class="about" id="about">
+         <div class="container">
+           <div class="about-top">
+             <h2 class="h2 section-title">O que fazemos</h2>
+             <p class="section-text">
+               Focamos em ajudar pessoas com TDAH, o site oferece uma série de ferramentas projetadas para aumentar a produtividade e aprimorar a organização.
+             </p>
+             <ul class="about-list">
+               <li>
+                 <div class="about-card">
+                   <div class="card-icon">
+                     <ion-icon name="briefcase-outline"></ion-icon>
+                   </div>
+                   <h3 class="h3 card-title">Pomodoro</h3>
+                   <p class="card-text">
+                     O método Pomodoro é uma técnica de gestão de tempo, que ajuda a melhorar a produtividade e a concentração, reduzindo a procrastinação.
+                   </p>
+                 </div>
+               </li>
+ 
+               <li>
+                 <div class="about-card">
+                   <div class="card-icon">
+                     <ion-icon name="chatbubbles-outline"></ion-icon>
+                   </div>
+                   <h3 class="h3 card-title">KanBan</h3>
+                   <p class="card-text">
+                     O Kanban é um método de gestão visual. Facilitando o acompanhamento do progresso, a identificação de obstáculos e a melhoria contínua da eficiência da equipe.
+                   </p>
+                 </div>
+               </li>
+ 
+               <li>
+                 <div class="about-card">
+                   <div class="card-icon">
+                     <ion-icon name="rocket-outline"></ion-icon>
+                   </div>
+                   <h3 class="h3 card-title">Playlists</h3>
+                   <p class="card-text">
+                     Playlists são seleções de músicas organizadas para diferentes atividades ou estados de espírito, proporcionando uma trilha sonora personalizada para acompanhar as tarefas do dia-a-dia.
+                   </p>
+                 </div>
+               </li>
+             </ul>
+           </div>
+ 
+           <div class="about-bottom">
+             <figure class="about-bottom-banner">
+               <img src="images/about-banner.png" alt="about banner" class="about-banner">
+             </figure>
+             <div class="about-bottom-content">
+               <h2 class="h2 section-title">Nosso objetivo é ajudar vc em seu desenvolvimento </h2>
+               <p class="section-text">
+                Nosso objetivo é oferecer suporte para seu desenvolvimento. Juntos, vamos encontrar estratégias eficazes para potencializar suas habilidades e superar desafios, promovendo uma jornada de crescimento e realização.
+               </p>
+               <a href="/cadastro/cadastro.html"><button  class="btn btn-primary">Inscreva-se gratuitamente</button></a>
+             </div>
+           </div>
+         </div>
+       </section>
 
-        <section id="s2" class="step">
-            <small>Passo 2:</small>
-            <h3>Customize</h3>
-            <p>Adapte o que achar melhor e deixe a sua cara!</p>
-        </section>
+      <section class="features" id="features">
+         <div class="container">
+           <h2 class="h2 section-title">O que é TDAH?</h2>
+           <p class="section-text">
+            O Transtorno do Déficit de Atenção e Hiperatividade é uma condição comportamental caracterizada por sintomas como a desatenção e a impulsividade, e que pode começar ou não na infância e durar até a vida adulta.
+           </p>
+           <ul class="features-list">
+             <li class="features-item">
+               <figure class="features-item-banner">
+                 <img src="images/feature-2.png" alt="feature banner">
+               </figure>
+               <div class="feature-item-content">
+                 <h3 class="h2 item-title">Diagnóstico</h3>
+                 <p class="item-text">
+                  Não existe um exame específico para se diagnosticar o TDAH, como um exame de sangue ou um exame de imagem. O exame que diagnostica o transtorno é clínico e deve ser realizado com acompanhamento médico.
+                 </p>
+               </div>
+             </li>
+             <li class="features-item">
+               <figure class="features-item-banner">
+                 <img src="images/feature-1.png" alt="feature banner">
+               </figure>
+               <div class="feature-item-content">
+                 <h3 class="h2 item-title">Tratamento</h3>
+                 <p class="item-text">
+                  O tratamento pode significar uma mudança na vida do paciente e familiares, mas é importante conhecer a condição e aprender o que é e o que não é TDAH. Grupos de apoio, exercícios e atividades também podem ajudar a focar e gastar energia de forma positiva.
+                 </p>
+               </div>
+             </li>
+           </ul>
+         </div>
+       </section>
+ 
+       <section class="contact" id="contact">
+         <div class="container">
+           <div class="contact-content">
+             <h2 class="h2 contact-title">Vamos te ajudar em que precisar</h2>
+             <figure class="contact-banner">
+               <img src="images/contact.png" alt="contact banner">
+             </figure>
+           </div>
+           <form action="" class="contact-form">
+             <div class="input-wrapper">
+               <label for="name" class="input-label">Nome</label>
+               <input type="text" name="name" id="name" required placeholder="Nome do tipo" class="input-field">
+             </div>
+             <div class="input-wrapper">
+               <label for="phone" class="input-label">Telefone</label>
+               <input type="tel" name="phone" id="phone" placeholder="Digite o número de telefone" class="input-field">
+             </div>
+             <div class="input-wrapper">
+               <label for="email" class="input-label">Endereço eletrônico</label>
+               <input type="email" name="email" id="email" required placeholder="Digite o endereço de e-mail" class="input-field">
+             </div>
+             <div class="input-wrapper">
+               <label for="message" class="input-label">Como podemos ajudar?</label>
+               <textarea name="message" id="message" placeholder="Descrição do tipo" required
+                 class="input-field"></textarea>
+             </div>
+             <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+           </form>
+         </div>
+       </section>
+     </article>
+   </main>
 
-        <section id="s3" class="step">
-            <small>Passo 3:</small>
-            <h3>Compre</h3>
-            <p>Nossos preços são os mais acessiveis da região!</p>
-        </section>
-    </footer>
+   <a href="#top" class="go-top active" data-go-top>
+     <ion-icon name="chevron-up-outline"></ion-icon>
+   </a>
 
-    <script src="home.js"></script>
-    <script src="main.js"></script>
-    <script src="../Configuracoes/configuracoesscript.js"></script>
+   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+   <script src="home.js"></script>
+   <script src="main.js"></script>
+   <script src="/Configuracoes/configuracoesscript.js"></script>
 </body>
 </html>
