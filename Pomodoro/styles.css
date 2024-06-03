@@ -403,17 +403,6 @@ a {
   }
 
   .pomodoro {
-    margin: -11vh auto;
-  }
-}
-
-@media screen and (max-width: 500px) {
-
-  .control {
-    margin: 20% auto;
-  }
-
-  .pomodoro {
-    margin: -10vh auto;
+    margin: 11vh auto;
   }
 }

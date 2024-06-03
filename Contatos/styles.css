@@ -364,8 +364,11 @@ a {
 
   .cards-container {
     flex-direction: column;
-    margin-right: 10vw;
-    margin-top: 10vh;
+  }
+
+  .wrapper {
+    height: 60vh;
+    width: 60vw;
   }
 
 }

@@ -274,7 +274,7 @@ a {
   }
 }
 
-/*==========Temas===========*/
+/*========== TEMAS ===========*/
 
 .light-theme {
   background-color: #e9e9e9;
@@ -404,27 +404,124 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/*
-.pomodoro-session {
-  margin-top: 3.5rem;
-  text-align: center;
-  background-color: #1e3662;
-  padding: 2rem;
-  color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.light-theme .pomodoro-session {
-  background-color: #fff;
-  color: #1e3662;
-}
-
+/* Tarefas */
 
 .light-theme .tarefas{
-  background-color: white;
+  background-color: #e9e9e9;
+  border: 4px solid #06214b;
 }
-*/
+
+.light-theme .tarefas h2{
+  color: #06214b;
+}
+
+.light-theme .card-tarefas{
+  background-color: #06214b;
+}
+
+.light-theme .task{
+  background-color: #06214b;
+}
+
+.light-theme .task input{
+  background-color: #e9e9e9;
+  border-bottom: 3px solid #1e3662;
+}
+
+.light-theme .garbage{
+  background-color: #06214b;
+}
+
+.light-theme .logo-tarefas{
+  color: #06214b;
+}
+
+.light-theme .slogan{
+  color: #06214b;
+}
+
+/* Playlist */
+
+.light-theme .playlist{
+  background-color: #06214b;
+}
+
+.light-theme .playlist h2 {
+  color: white;
+}
+
+.light-theme .li-play{
+  color: #fff;
+}
+
+/* Conta */
+
+.light-theme .conteudoConta{
+  background-color: #e9e9e9;
+}
+
+/* Home */
+
+.light-theme #highlight,
+.light-theme #typing-bar{
+  color: #06214b;
+}
+
+.light-theme .content h3{
+  color: #06214b;
+}
+
+.light-theme .about h2,
+.light-theme .about p{
+  color: #06214b;
+}
+
+.light-theme .input-label{
+  color: #06214b;
+}
+
+.light-theme .features h2,
+.light-theme .features h3,
+.light-theme .features p{
+  color: #06214b;
+}
+
+.light-theme .contact h2{
+  color: #06214b;
+} 
+
+.light-theme .input-field::placeholder { 
+  color: #1e3662; 
+}
+
+.light-theme .input-field {
+  border-bottom: 1px solid #06214b;
+}
+
+.light-theme .about-bottom .btn-secondary{
+  background-color: #06214b;
+}
+
+.light-theme .btn-secondary:is(:hover, :focus) {
+  background: #1e3662; 
+}
+
+.light-theme .about-card{
+  background: #06214b;
+}
+
+.light-theme .card-icon {
+  color: white;
+}
+
+.light-theme .about-card h3,
+.light-theme .about-card p{
+  color: white;
+}
+
+.light-theme
+
+.light-theme
 
 .light-theme .col-md-9{
   background-color: #6773a6;
@@ -443,7 +540,7 @@ input:checked + .slider:before {
 }
 
 .light-theme .bodyconta{
-  background-color: #6773a6;
+  background-color: #e9e9e9;
 }
 
 .light-theme footer{

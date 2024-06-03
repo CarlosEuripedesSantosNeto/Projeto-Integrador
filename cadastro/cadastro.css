@@ -346,3 +346,16 @@ body.dark-theme {
     /* change the value of second inset in box-shadow to change the angle and direction of the moon  */
     box-shadow: inset -3px -2px 5px -2px #ffffff, inset -10px -4px 0 0 #ffffff;
   }
+
+@media screen and (max-width: 960px) {
+    .container{
+    width: 85vw;
+    max-width: 100%;
+    min-height: 480px;
+    }
+
+    .switch {
+    margin: 5%;
+    margin-right: 8%;
+      }
+}
