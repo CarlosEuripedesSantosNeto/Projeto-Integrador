@@ -1,60 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
- 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="cadastro.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="cadastro.css" />
     <title>Login</title>
-</head>
 
-<main>
+    <!-- Adicione os scripts do Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyDAVyzcKFW9W5TWCCLuXTq4RgPmTv_loEc",
+        authDomain: "banco-7eaec.firebaseapp.com",
+        databaseURL: "https://banco-7eaec-default-rtdb.firebaseio.com",
+        projectId: "banco-7eaec",
+        storageBucket: "banco-7eaec.appspot.com",
+        messagingSenderId: "273595281648",
+        appId: "1:273595281648:web:f24fe2f7d6066e46a69235",
+        measurementId: "G-T6PG24C641",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+
+      function criarConta() {
+        const name = document.querySelector('input[name="name"]').value;
+        const email = document.querySelector('input[name="email"]').value;
+        const password = document.querySelector('input[name="password"]').value;
+        const pfpInput = document.getElementById("pfpInput");
+
+        firebase
+          .auth()
+          .createUserWithEmailAndPassword(email, password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+
+            if (pfpInput.files.length > 0) {
+              uploadProfilePicture(user.uid, pfpInput.files[0])
+                .then((uploadTaskSnapshot) => {
+                  const pfpUrl = uploadTaskSnapshot.ref.getDownloadURL();
+                  return pfpUrl;
+                })
+                .then((url) => {
+                  return firebase
+                    .database()
+                    .ref("users/" + user.uid)
+                    .update({
+                      name: name,
+                      email: email,
+                      profilePicture: url,
+                    });
+                })
+                .then(() => {
+                  console.log("Cadastro bem-sucedido: ", user);
+                  alert("Conta criada com sucesso!");
+                  window.location.href = "../Home/home.html"; // Redirecionamento após a conclusão bem-sucedida
+                })
+                .catch((error) => {
+                  console.error("Erro durante o upload da imagem: ", error);
+                  alert("Erro durante o upload da imagem: " + error);
+                });
+            } else {
+              firebase
+                .database()
+                .ref("users/" + user.uid)
+                .set({
+                  name: name,
+                  email: email,
+                })
+                .then(() => {
+                  console.log("Cadastro bem-sucedido: ", user);
+                  alert("Conta criada com sucesso!");
+                  window.location.href = "../Home/home.html"; // Redirecionamento após a conclusão bem-sucedida
+                })
+                .catch((error) => {
+                  console.error("Erro ao criar conta: ", error);
+                  alert("Erro ao criar conta: " + error);
+                });
+            }
+          });
+      }
+
+      function uploadProfilePicture(uid, file) {
+        const storageRef = firebase.storage().ref();
+        const fileRef = storageRef.child(`profilePictures/${uid}.jpg`);
+
+        return fileRef.put(file);
+      }
+
+      function logarConta() {
+        const email = document.getElementById("login-email").value;
+        const password = document.getElementById("login-password").value;
+
+        firebase
+          .auth()
+          .signInWithEmailAndPassword(email, password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            console.log("Login bem-sucedido: ", user);
+            window.location.href = "../Home/home.html";
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error("Erro durante o login: ", errorMessage);
+          });
+      }
+    </script>
+  </head>
+
+  <main>
     <body>
- 
-        <div class="container" id="container">
-            <div class="form-container sign-up">
-                <form>
-                    <h1>Crie Sua Conta</h1>
-                    <input type="text" placeholder="Name">
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password">
-                    <button type="submit">Inscrever-se</button>
-                </form>
-            </div>
-            <div class="form-container sign-in">
-                <form>
-                    <h1>Login </h1>
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password">
-                    <a href="#">Esqueceu sua senha?</a>
-                    <a href="/Home/home.html" target="_blank"><button type="button">Entrar</button></a>
-                </form>
-            </div>
-            <div class="toggle-container">
-                <div class="toggle">
-                    <div class="toggle-panel toggle-left">
-                        <h1>Seja Bem-Vindo</h1>
-                       
-                        <button class="hidden" id="login">Entrar</button>
-                    </div>
-                    <div class="toggle-panel toggle-right">
-                        <h1>Bem-Vindo de Volta</h1>
-                        <button class="hidden" id="register">Inscrever-se</button>
-                    </div>
-                </div>
-            </div>
+      <div class="container" id="container">
+        <div class="form-container sign-up">
+          <form>
+            <h1>Crie Sua Conta</h1>
+            <input type="text" name="name" placeholder="Nome" />
+            <input
+              type="email"
+              id="signup-email"
+              name="email"
+              placeholder="Email"
+            />
+            <input
+              type="password"
+              id="signup-password"
+              name="password"
+              placeholder="Password"
+            />
+            <input type="file" id="pfpInput" name="pfp" accept="image/*" />
+
+            <button type="button" onclick="criarConta()">Inscrever-se</button>
+          </form>
         </div>
-        <label class="switch">
-            <input type="checkbox" id ="theme-toggle">
-            <span class="slider"></span>
-        </label>
-        <script src="cadastro.js"></script>
+        <div class="form-container sign-in">
+          <form>
+            <h1>Login</h1>
+            <input type="email" id="login-email" placeholder="Email" />
+            <input type="password" id="login-password" placeholder="Password" />
+            <a href="#">Esqueceu sua senha?</a>
+            <button type="button" onclick="logarConta()">Entrar</button>
+          </form>
+        </div>
+        <div class="toggle-container">
+          <div class="toggle">
+            <div class="toggle-panel toggle-left">
+              <h1>Seja Bem-Vindo</h1>
+              <button class="hidden" id="login">Entrar</button>
+            </div>
+            <div class="toggle-panel toggle-right">
+              <h1>Bem-Vindo de Volta</h1>
+              <button class="hidden" id="register">Inscrever-se</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle" />
+        <span class="slider"></span>
+      </label>
+
+      <script src="cadastro.js"></script>
     </body>
-
-</main>
-
-
- 
+  </main>
 </html>
-
