@@ -11,7 +11,7 @@
 body {
   font-family: "Montserrat", sans-serif;
   font-size: .938rem;
-  background-color: #1e3662;
+  background-color: black;
   overflow-y: scroll;
 }
 
@@ -34,7 +34,7 @@ a {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #06214b;
+  background-color: #003EA8;
   box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
   z-index: 100;
 }
@@ -57,9 +57,10 @@ a {
   font-weight: 600;
 }
 
-.logo i {
-  font-weight: initial;
-  font-size: 1.25rem;
+.logo img {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
 }
 
 .nav-icons {
@@ -117,7 +118,7 @@ a {
     width: 0;
   }
   .nav-lista {
-    background-color: #06214b;
+    background-color: #003EA8;
     padding-top: 1rem;
   }  
 
@@ -129,7 +130,7 @@ a {
 
 .nav-links {
   color: white;
-  background-color: #06214b;
+  background-color: #003EA8;
   font-weight: 600;
   padding: 1.25rem 1.5rem;
   display: flex;
@@ -139,7 +140,7 @@ a {
 }
 
 .nav-links:hover {
-  background-color: #06214b;
+  background-color: #003EA8;
 }
 
 .menu-responsivo {
@@ -172,7 +173,7 @@ a {
 .usuario-links {
   padding: 1.25rem 1.25rem 1.25rem 2.5rem;
   color: white;
-  background-color: #06214b;
+  background-color: #003EA8;
   display: flex;
   align-items: center;
   column-gap: .5rem;
@@ -186,7 +187,7 @@ a {
 }
 
 .usuario-links:hover {
-  background-color: #06214b;
+  background-color: #003EA8;
 }
 
 .usuario-menu {
@@ -278,15 +279,15 @@ a {
 
 .light-theme {
   background-color: #e9e9e9;
-  color: #1e3662;
+  color: black;
 }
 
 .light-theme .header {
-  background-color: #06214b;
+  background-color: #003EA8;
 }
 
 .light-theme .nav-links {
-  background-color: #06214b;
+  background-color: #003EA8;
   color: #fff;
 }
 
@@ -297,7 +298,7 @@ a {
 .bodyconfiguracoes {
   margin-top: 5rem;
   padding: 5rem 5rem;
-  background-color: #1e3662;
+  background-color: black;
 }
 
 .light-theme .bodyconfiguracoes {
@@ -346,18 +347,14 @@ a {
   border-radius: 10px;
   border: none;
   width: 100%;
-  background-color: #06214b;
+  background-color: #003EA8;
   color: white;
   cursor: pointer;
   transition: background-color .3s;
 }
 
-.buttonsenha:hover {
-  background-color: #041530;
-}
-
 .light-theme .buttonsenha {
-  background-color: #1e3662;
+  background-color: #003EA8;
 }
 
 .switch {
@@ -408,42 +405,42 @@ input:checked + .slider:before {
 
 .light-theme .tarefas{
   background-color: #e9e9e9;
-  border: 4px solid #06214b;
+  border: 2px solid #003EA8;
 }
 
 .light-theme .tarefas h2{
-  color: #06214b;
+  color: #003EA8;
 }
 
 .light-theme .card-tarefas{
-  background-color: #06214b;
+  background-color: #003EA8;
 }
 
 .light-theme .task{
-  background-color: #06214b;
+  background-color: #003EA8;
 }
 
 .light-theme .task input{
   background-color: #e9e9e9;
-  border-bottom: 3px solid #1e3662;
+  
 }
 
 .light-theme .garbage{
-  background-color: #06214b;
+  background-color: #003EA8;
 }
 
 .light-theme .logo-tarefas{
-  color: #06214b;
+  color: #003EA8;
 }
 
 .light-theme .slogan{
-  color: #06214b;
+  color: #003EA8;
 }
 
 /* Playlist */
 
 .light-theme .playlist{
-  background-color: #06214b;
+  background-color: #003EA8;
 }
 
 .light-theme .playlist h2 {
@@ -464,50 +461,50 @@ input:checked + .slider:before {
 
 .light-theme #highlight,
 .light-theme #typing-bar{
-  color: #06214b;
+  color: #003EA8;
 }
 
 .light-theme .content h3{
-  color: #06214b;
+  color: #003EA8;
 }
 
 .light-theme .about h2,
 .light-theme .about p{
-  color: #06214b;
+  color: #003EA8;
 }
 
 .light-theme .input-label{
-  color: #06214b;
+  color: #003EA8;
 }
 
 .light-theme .features h2,
 .light-theme .features h3,
 .light-theme .features p{
-  color: #06214b;
+  color: #003EA8;
 }
 
 .light-theme .contact h2{
-  color: #06214b;
+  color: #003EA8;
 } 
 
 .light-theme .input-field::placeholder { 
-  color: #1e3662; 
+  color: black; 
 }
 
 .light-theme .input-field {
-  border-bottom: 1px solid #06214b;
+  border-bottom: 1px solid #003EA8;
 }
 
 .light-theme .about-bottom .btn-secondary{
-  background-color: #06214b;
+  background-color: #003EA8;
 }
 
 .light-theme .btn-secondary:is(:hover, :focus) {
-  background: #1e3662; 
+  background: black; 
 }
 
 .light-theme .about-card{
-  background: #06214b;
+  background: #003EA8;
 }
 
 .light-theme .card-icon {
@@ -519,16 +516,36 @@ input:checked + .slider:before {
   color: white;
 }
 
-.light-theme
+.light-theme .wrapper .card{
+  background: #003EA8;
+}
 
-.light-theme
+.light-theme .wrapper .back-face img {
+  background: linear-gradient(375deg, white, white);
+}
+
+.light-theme .wrapper .back-face .title,
+.light-theme .wrapper .back-face p{
+  color: white;
+}
+
+.light-theme .back-face ul a{
+  color: #003EA8;
+  background: linear-gradient(375deg, white, white);
+}
+
+.light-theme .back-face ul a:hover {
+  color: white;
+  border-color: white;
+  background: linear-gradient(375deg, transparent, transparent);
+}
 
 .light-theme .col-md-9{
   background-color: #6773a6;
 }
 
 .light-theme .list-group-item{
-  background-color: #1e3662;
+  background-color: black;
   color: rgb(255, 255, 255);
 }
 .light-theme .btn{
@@ -536,7 +553,7 @@ input:checked + .slider:before {
 }
 
 .light-theme .player{
-  background-color: #1e3662;
+  background-color: black;
 }
 
 .light-theme .bodyconta{
@@ -544,29 +561,29 @@ input:checked + .slider:before {
 }
 
 .light-theme footer{
-  background-color: #06214b;
+  background-color: #003EA8;
 }
 
 .light-theme .titulo-landingpage{
-  color: #06214b;
+  color: #003EA8;
 }
 
 .light-theme .texto-landingpage{
-  color: #06214b;
+  color: #003EA8;
 }
 
 .light-theme .control-title{
-  color: #06214b;
+  color: #003EA8;
 }
 
 .light-theme .fa{
-  color: #06214b;
+  color: #003EA8;
 }
 
 .light-theme #session{
-  color: #06214b;
+  color: #003EA8;
 }
 
 .light-theme #break{
-  color: #06214b;
+  color: #003EA8;
 }

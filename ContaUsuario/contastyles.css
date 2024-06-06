@@ -11,7 +11,7 @@
 body {
   font-family: "Montserrat", sans-serif;
   font-size: .938rem;
-  background-color: #1e3662;
+  background-color: #000000;
   overflow-y: scroll;
 }
 
@@ -278,7 +278,7 @@ a {
 
 .bodyconta {
     margin-top: 9%;
-    background-color: #1e3662;
+    background-color: #000000;
 }
 
 .conteudoconta {

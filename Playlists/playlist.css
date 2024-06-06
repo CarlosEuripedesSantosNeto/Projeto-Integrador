@@ -11,7 +11,7 @@
 body {
   font-family: "Montserrat", sans-serif;
   font-size: .938rem;
-  background-color: #1e3662;
+  background-color: black;
   overflow-y: scroll;
   margin-bottom: 5rem; 
 }
@@ -35,7 +35,7 @@ a {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #06214b;
+  background-color: #003EA8;
   box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
   z-index: 100;
 }
@@ -58,9 +58,10 @@ a {
   font-weight: 600;
 }
 
-.logo i {
-  font-weight: initial;
-  font-size: 1.25rem;
+.logo img {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
 }
 
 .nav-icons {
@@ -118,7 +119,7 @@ a {
     width: 0;
   }
   .nav-lista {
-    background-color: #06214b;
+    background-color: #003EA8;
     padding-top: 1rem;
   }
 
@@ -129,7 +130,7 @@ a {
 
 .nav-links {
   color: white;
-  background-color: #06214b;
+  background-color: #003EA8;
   font-weight: 600;
   padding: 1.25rem 1.5rem;
   display: flex;
@@ -139,7 +140,7 @@ a {
 }
 
 .nav-links:hover {
-  background-color: #06214b;
+  background-color: #003EA8;
 }
 
 .menu-responsivo {
@@ -172,7 +173,7 @@ a {
 .usuario-links {
   padding: 1.25rem 1.25rem 1.25rem 2.5rem;
   color: white;
-  background-color: #06214b;
+  background-color: #003EA8;
   display: flex;
   align-items: center;
   column-gap: .5rem;
@@ -186,7 +187,7 @@ a {
 }
 
 .usuario-links:hover {
-  background-color: #06214b;
+  background-color: #003EA8;
 }
 
 .usuario-menu {
@@ -301,7 +302,7 @@ h1 {
 .playlist h2 {
   font-size: 1.8rem;
   margin-bottom: 20px;
-  color: #06214b;
+  color: #003EA8;
 }
 
 ul .play-ul {
@@ -318,7 +319,7 @@ li .li-play {
 }
 
 li .li-play:hover {
-  color: #1e3662;
+  color: black;
 }
 
 .player-container {
@@ -326,7 +327,7 @@ li .li-play:hover {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #06214b;
+  background-color: #003EA8;
   padding: 15px 0;
   box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -361,7 +362,7 @@ li .li-play:hover {
 }
 
 .player-controls button:hover {
-  color: #1e3662;
+  color: black;
 }
 
 #currentSongInfo{
@@ -379,7 +380,7 @@ li .li-play:hover {
 
 .progress-bar {
   height: 100%;
-  background-color: #1e3662;
+  background-color: black;
   width: 0%;
   transition: width 0.1s ease;
 }

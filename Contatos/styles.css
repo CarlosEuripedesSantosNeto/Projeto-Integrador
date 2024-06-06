@@ -11,7 +11,7 @@
 body {
   font-family: "Montserrat", sans-serif;
   font-size: .938rem;
-  background-color: #1e3662;
+  background-color: black;
   overflow-y: scroll;
   margin-bottom: 5rem; /* Adiciona espaço para o footer */
 }
@@ -35,7 +35,7 @@ a {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #06214b;
+  background-color: #003EA8;
   box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
   z-index: 100;
 }
@@ -58,9 +58,10 @@ a {
   font-weight: 600;
 }
 
-.logo i {
-  font-weight: initial;
-  font-size: 1.25rem;
+.logo img {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
 }
 
 .nav-icons {
@@ -118,7 +119,7 @@ a {
     width: 0;
   }
   .nav-lista {
-    background-color: #06214b;
+    background-color: #003EA8;
     padding-top: 1rem;
   }
 
@@ -130,7 +131,7 @@ a {
 
 .nav-links {
   color: white;
-  background-color: #06214b;
+  background-color: #003EA8;
   font-weight: 600;
   padding: 1.25rem 1.5rem;
   display: flex;
@@ -140,7 +141,7 @@ a {
 }
 
 .nav-links:hover {
-  background-color: #06214b;
+  background-color: #003EA8;
 }
 
 .menu-responsivo {
@@ -173,7 +174,7 @@ a {
 .usuario-links {
   padding: 1.25rem 1.25rem 1.25rem 2.5rem;
   color: white;
-  background-color: #06214b;
+  background-color: #003EA8;
   display: flex;
   align-items: center;
   column-gap: .5rem;
@@ -187,7 +188,7 @@ a {
 }
 
 .usuario-links:hover {
-  background-color: #06214b;
+  background-color: #003EA8;
 }
 
 .usuario-menu {
@@ -322,7 +323,7 @@ a {
   width: 150px;
   padding: 5px;
   border-radius: 50%;
-  background: linear-gradient(375deg, #06214b, #06214b);
+  background: linear-gradient(375deg, #003EA8, #003EA8);
 }
 
 .wrapper .back-face .info {
@@ -348,13 +349,13 @@ a {
   line-height: 38px;
   border: 2px solid transparent;
   border-radius: 50%;
-  background: linear-gradient(375deg, #06214b, #06214b);
+  background: linear-gradient(375deg, #003EA8, #003EA8);
   transition: all 0.5s ease;
 }
 
 .back-face ul a:hover {
-  color: #06214b;
-  border-color: #06214b;
+  color: #003EA8;
+  border-color: #003EA8;
   background: linear-gradient(375deg, transparent, transparent);
 }
 
