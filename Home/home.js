@@ -7,11 +7,11 @@ const highlights = [
 ]
 
 const images = [
-    "./assets/Internet.svg",
-    "./assets/Login.svg",
-    "./assets/Dashboard.svg",
-    "./assets/Portfolio.svg",
-    "./assets/Bloging.svg"
+    "./assets/Pomodoro.svg",
+    "./assets/Kanban.svg",
+    "./assets/playlist.svg",
+    "./assets/Calendario.svg",
+    "./assets/Cadastro.svg"
 ]
 
 let cur = 0, letter = -1, cur_img = 0;

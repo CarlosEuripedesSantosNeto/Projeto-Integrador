@@ -11,7 +11,7 @@
 body {
   font-family: "Montserrat", sans-serif;
   font-size: .938rem;
-  background-color: #1e3662;
+  background-color: black;
   overflow-y: scroll;
   margin-bottom: 5rem; 
 }
@@ -35,7 +35,7 @@ a {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #06214b;
+  background-color: #003EA8;
   box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
   z-index: 100;
 }
@@ -119,7 +119,7 @@ a {
     width: 0;
   }
   .nav-lista {
-    background-color: #06214b;
+    background-color: #003EA8;
     padding-top: 1rem;
   }
 
@@ -130,7 +130,7 @@ a {
 
 .nav-links {
   color: white;
-  background-color: #06214b;
+  background-color: #003EA8;
   font-weight: 600;
   padding: 1.25rem 1.5rem;
   display: flex;
@@ -140,7 +140,7 @@ a {
 }
 
 .nav-links:hover {
-  background-color: #06214b;
+  background-color: #003EA8;
 }
 
 .menu-responsivo {
@@ -173,7 +173,7 @@ a {
 .usuario-links {
   padding: 1.25rem 1.25rem 1.25rem 2.5rem;
   color: white;
-  background-color: #06214b;
+  background-color: #003EA8;
   display: flex;
   align-items: center;
   column-gap: .5rem;
@@ -187,7 +187,7 @@ a {
 }
 
 .usuario-links:hover {
-  background-color: #06214b;
+  background-color: #003EA8;
 }
 
 .usuario-menu {
@@ -294,7 +294,7 @@ a {
 .control-break {
   padding: 5px 10px;
   width: 140px;
-  color: #06214b;
+  color: #003EA8;
   color: white;
   font-size: 1.5em;
   text-align: center;
@@ -324,7 +324,7 @@ a {
   top: 20px;
   left: 0;
   padding: 10px;
-  background: #06214b;
+  background: #003EA8;
   color: #fff;
   font-size: 0.6em;
   letter-spacing: 0.25em;
@@ -353,13 +353,13 @@ a {
   width: 36px;
   height: 36px;
   background: #fff;
-  color: #06214b;
+  color: #003EA8;
   line-height: 36px;
   cursor: pointer;
 }
 
 .button:hover {
-  background: #06214b;
+  background: #003EA8;
   color: #fff;
 }
 
@@ -368,8 +368,8 @@ a {
 }
 
 .session {
-  border: 10px solid #06214b;
-  background: #374a79;
+  border: 10px solid #003EA8;
+  background: #004fd8;
   color: #fff;
   -webkit-animation: glow 1.5s ease-in-out infinite alternate;
   -moz-animation: glow 1.5s ease-in-out infinite alternate;
@@ -377,8 +377,8 @@ a {
 }
 
 .break {
-  background: #6773a6;
-  border: 10px solid #06214b;
+  background: #005eff;
+  border: 10px solid #003EA8;
   -webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5);
   box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5);
@@ -387,8 +387,8 @@ a {
 @keyframes glow {
   from {
     -webkit-box-shadow: 0 0 30px 0 #374a79;
-    -moz-box-shadow: 0 0 30px 0 #1e3662;
-    box-shadow: 0 0 30px 0 #06214b;
+    -moz-box-shadow: 0 0 30px 0 black;
+    box-shadow: 0 0 30px 0 #003EA8;
   }
   to {
     -webkit-box-shadow: 0 0 50px 5px #6773a6;

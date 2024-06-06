@@ -11,7 +11,7 @@
 body {
   font-family: "Montserrat", sans-serif;
   font-size: .938rem;
-  background-color: #1e3662;
+  background-color: black;
   overflow-y: scroll;
 }
 
@@ -34,7 +34,7 @@ a {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #06214b;
+  background-color: #003EA8;
   box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
   z-index: 100;
 }
@@ -118,7 +118,7 @@ a {
     width: 0;
   }
   .nav-lista {
-    background-color: #06214b;
+    background-color: #003EA8;
     padding-top: 1rem;
   }  
 
@@ -130,7 +130,7 @@ a {
 
 .nav-links {
   color: white;
-  background-color: #06214b;
+  background-color: #003EA8;
   font-weight: 600;
   padding: 1.25rem 1.5rem;
   display: flex;
@@ -140,7 +140,7 @@ a {
 }
 
 .nav-links:hover {
-  background-color: #06214b;
+  background-color: #003EA8;
 }
 
 .menu-responsivo {
@@ -173,7 +173,7 @@ a {
 .usuario-links {
   padding: 1.25rem 1.25rem 1.25rem 2.5rem;
   color: white;
-  background-color: #06214b;
+  background-color: #003EA8;
   display: flex;
   align-items: center;
   column-gap: .5rem;
@@ -187,7 +187,7 @@ a {
 }
 
 .usuario-links:hover {
-  background-color: #06214b;
+  background-color: #003EA8;
 }
 
 .usuario-menu {
@@ -279,7 +279,7 @@ a {
 
 .bodyconta {
     margin-top: 9%;
-    background-color: #1e3662;
+    background-color: black;
 }
 
 .conteudoconta {
@@ -304,13 +304,13 @@ a {
     height: 150px;
     width: 150px;
     border-radius: 50%;
-    background: linear-gradient(375deg, #06214b, #06214b);
+    background: linear-gradient(375deg, #003EA8, #003EA8);
     padding: 5px;
 }
 
 .card h2 {
     margin-top: 1rem;
-    color: #06214b;
+    color: #003EA8;
 }
 
 .card h3 {
@@ -331,7 +331,7 @@ a {
 
 .button {
     padding: 0.75rem 1.5rem;
-    background-color: #06214b;
+    background-color: #003EA8;
     color: white;
     border: none;
     border-radius: 5px;
