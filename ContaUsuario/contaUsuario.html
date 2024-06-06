@@ -7,6 +7,53 @@
     <link rel="stylesheet" href="contastyles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
     <link rel="stylesheet" href="../Configuracoes/configuracoesstyles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyDAVyzcKFW9W5TWCCLuXTq4RgPmTv_loEc",
+        authDomain: "banco-7eaec.firebaseapp.com",
+        databaseURL: "https://banco-7eaec-default-rtdb.firebaseio.com",
+        projectId: "banco-7eaec",
+        storageBucket: "banco-7eaec.appspot.com",
+        messagingSenderId: "273595281648",
+        appId: "1:273595281648:web:f24fe2f7d6066e46a69235",
+        measurementId: "G-T6PG24C641",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+
+      document.addEventListener('DOMContentLoaded', function() {
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            const uid = user.uid;
+            getUserData(uid);
+          } else {
+            console.log('Nenhum usuário autenticado.');
+            // Redirecionar para a página de login ou mostrar uma mensagem de erro
+          }
+        });
+      });
+
+      function getUserData(uid) {
+        const userRef = firebase.database().ref('users/' + uid);
+
+        userRef.once('value').then(function(snapshot) {
+          const name = snapshot.val().name;
+          const email = snapshot.val().email;
+          updateUserInfo(name, email);
+        }).catch(function(error) {
+          console.error('Erro ao recuperar os dados do usuário: ', error);
+        });
+      }
+
+      function updateUserInfo(name, email) {
+        document.querySelector('.nomeconta').innerHTML = '<strong>Nome de usuário:</strong> ' + name;
+        document.querySelector('.emailconta').innerHTML = '<strong>Email:</strong> ' + email;
+      }
+    </script>
 </head>
 <body>
 
@@ -60,19 +107,12 @@
       <div class="conteudoconta">
          <div class="card back-face">
             <img src="../Contatos/Fotos/Carlos.png" alt="Foto do Usuário">
-            <!--depois adicionar JS para pegar os dados do usuario que fez o login-->
-            <h2>Cristiano Ronaldo</h2>
          </div>
 
          <div class="card">
             <h3>Informações da Conta</h3>
-            <p class="emailconta"><strong>Email:</strong> omilior@gmail.com</p>
-            <p class="nomeconta"><strong>Nome de usuário:</strong> Cristiano Ronaldo</p>
-         </div>
-            
-         <div class="actions">
-            <button class="button">Editar Perfil</button>
-            <button class="button">Logout</button>
+            <p class="emailconta"><strong>Email:</strong></p>
+            <p class="nomeconta"><strong>Nome de usuário:</strong></p>
          </div>
       </div>
    </section>
