@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Focus</title>
+    <title>Playlist</title>
     <!--=============== ICONS ===============-->
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
@@ -16,49 +16,27 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-      rel="stylesheet"
+      rel="shortcut icon"
+      type="image/png"
+      href="/Home/images/FOCO-ÍCONE.ico"
     />
     <link rel="stylesheet" href="playlist.css" />
-    <style>
-      .hidden {
-        display: none;
-      }
-      .nav-play .nav-link.active {
-        font-weight: bold;
-      }
-      .player {
-        display: flex;
-        align-items: center;
-      }
-      .song-info {
-        margin-left: 10px;
-      }
-      .progress {
-        width: 100%;
-      }
-      .progress-bar {
-        width: 0;
-        height: 5px;
-      }
-    </style>
+    <link rel="stylesheet" href="../Configuracoes/configuracoesstyles.css" />
   </head>
   <body>
     <!--=============== HEADER ===============-->
     <header class="header">
       <div class="container">
         <nav class="nav">
-          <a href="home.html" class="logo">
-            <i class="ri-planet-line"></i> Pomodoro
+          <a href="/Home/home.html" class="logo">
+            Foco <img src="/Home/images/FOCO + ÍCONE.png" />
           </a>
 
           <!-- Nav Icons -->
@@ -79,6 +57,11 @@
               <li>
                 <a href="/Tarefas/index.html" class="nav-links">Tarefas</a>
               </li>
+              <li>
+                <a href="/Calendario/index.html" class="nav-links"
+                  >Calendário</a
+                >
+              </li>
 
               <!-- Link usuário -->
               <li class="link-usuario">
@@ -87,7 +70,9 @@
                 ></a>
                 <ul class="usuario-menu">
                   <li>
-                    <a href="#" class="usuario-links"
+                    <a
+                      href="../ContaUsuario/contaUsuario.html"
+                      class="usuario-links"
                       ><i class="ri-user-line"></i> Conta</a
                     >
                   </li>
@@ -99,7 +84,11 @@
                 </ul>
               </li>
 
-              <li><a href="#" class="nav-links">Configurações</a></li>
+              <li>
+                <a href="../Configuracoes/configuracoes.html" class="nav-links"
+                  >Configurações</a
+                >
+              </li>
               <li>
                 <a href="/Contatos/contatos.html" class="nav-links">Contatos</a>
               </li>
@@ -114,194 +103,115 @@
     </header>
 
     <!--=============== PLAYLIST ===============-->
-    <div class="container-fluid">
-      <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-          <div class="sidebar-sticky">
-            <ul class="nav-play flex-column">
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  href="#"
-                  onclick="showPlaylist('playlist1')"
-                >
-                  <i class="fas fa-music"></i> Playlist 1
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="#"
-                  onclick="showPlaylist('playlist2')"
-                >
-                  <i class="fas fa-music"></i> Playlist 2
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="#"
-                  onclick="showPlaylist('playlist3')"
-                >
-                  <i class="fas fa-music"></i> Playlist 3
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-        <main
-          role="main"
-          class="col-md-9 ml-sm-auto col-lg-10 px-4 main-content"
-        >
-          <div id="playlist1" class="playlist">
-            <h2>Playlist 1</h2>
-            <ul class="list-group">
-              <li
-                class="list-group-item d-flex justify-content-between align-items-center"
-              >
-                Música Teste
-                <button
-                  class="btn btn-primary btn-sm"
-                  onclick="playSong('musicas/playlist1/musica1.mp3', 'Música Teste')"
-                >
-                  <i class="fas fa-play"></i>
-                </button>
-              </li>
-              <li
-                class="list-group-item d-flex justify-content-between align-items-center"
-              >
-                Natureza 1
-                <button
-                  class="btn btn-primary btn-sm"
-                  onclick="playSong('musicas/playlist1/Natureza1.mp3', 'Natureza 1')"
-                >
-                  <i class="fas fa-play"></i>
-                </button>
-              </li>
-              <li
-                class="list-group-item d-flex justify-content-between align-items-center"
-              >
-                Natureza 2
-                <button
-                  class="btn btn-primary btn-sm"
-                  onclick="playSong('musicas/playlist1/Natureza2.mp3', 'Natureza 2')"
-                >
-                  <i class="fas fa-play"></i>
-                </button>
-              </li>
-              <li
-                class="list-group-item d-flex justify-content-between align-items-center"
-              >
-                Natureza 3
-                <button
-                  class="btn btn-primary btn-sm"
-                  onclick="playSong('musicas/playlist1/Natureza3.mp3', 'Natureza 3')"
-                >
-                  <i class="fas fa-play"></i>
-                </button>
-              </li>
-            </ul>
-          </div>
-          <div id="playlist2" class="playlist hidden">
-            <h2>Playlist 2</h2>
-            <ul class="list-group">
-              <li
-                class="list-group-item d-flex justify-content-between align-items-center"
-              >
-                Binaural 1
-                <button
-                  class="btn btn-primary btn-sm"
-                  onclick="playSong('musicas/playlist2/Binaural1.mp3', 'Binaural 1')"
-                >
-                  <i class="fas fa-play"></i>
-                </button>
-              </li>
-              <li
-                class="list-group-item d-flex justify-content-between align-items-center"
-              >
-                Binaural 2
-                <button
-                  class="btn btn-primary btn-sm"
-                  onclick="playSong('musicas/playlist2/Binaural2.mp3', 'Binaural 2')"
-                >
-                  <i class="fas fa-play"></i>
-                </button>
-              </li>
-              <li
-                class="list-group-item d-flex justify-content-between align-items-center"
-              >
-                Binaural 3
-                <button
-                  class="btn btn-primary btn-sm"
-                  onclick="playSong('musicas/playlist2/Binaural3.mp3', 'Song C')"
-                >
-                  <i class="fas fa-play"></i>
-                </button>
-              </li>
-            </ul>
-          </div>
-          <div id="playlist3" class="playlist hidden">
-            <h2>Playlist 3</h2>
-            <ul class="list-group">
-              <li
-                class="list-group-item d-flex justify-content-between align-items-center"
-              >
-                Instrumental 1
-                <button
-                  class="btn btn-primary btn-sm"
-                  onclick="playSong('musicas/playlist3/Instrumental1.mp3', 'Instrumental 1')"
-                >
-                  <i class="fas fa-play"></i>
-                </button>
-              </li>
-              <li
-                class="list-group-item d-flex justify-content-between align-items-center"
-              >
-                Instrumental 2
-                <button
-                  class="btn btn-primary btn-sm"
-                  onclick="playSong('musicas/playlist3/Instrumental2.mp3', 'Instrumental 2')"
-                >
-                  <i class="fas fa-play"></i>
-                </button>
-              </li>
-              <li
-                class="list-group-item d-flex justify-content-between align-items-center"
-              >
-                Instrumental 3
-                <button
-                  class="btn btn-primary btn-sm"
-                  onclick="playSong('musicas/playlist3/Instrumental3.mp3', 'Instrumental 3')"
-                >
-                  <i class="fas fa-play"></i>
-                </button>
-              </li>
-            </ul>
-          </div>
-          <div class="audio-controls mt-3">
-            <div class="player">
-              <button id="playPauseBtn" class="btn btn-primary">
-                <i id="playPauseIcon" class="fas fa-play"></i>
-              </button>
-              <div class="song-info">
-                <span id="currentSong">No song playing</span>
-                <div id="progressContainer" class="progress">
-                  <div id="progress" class="progress-bar"></div>
-                </div>
-              </div>
-              <audio id="audioPlayer">
-                <source id="audioSource" src="" type="audio/mp3" />
-                Your browser does not support the audio element.
-              </audio>
-            </div>
-          </div>
-        </main>
+
+    <div class="playlist-container">
+      <div class="playlist" id="playlist1">
+        <h2>Binaural</h2>
+        <ul class="play-ul">
+          <li
+            class="li-play"
+            data-src="Músicas/Binaural 1.mp3"
+            data-img="images/song1.jpg"
+          >
+            . 40 Hz Binaural Beats
+          </li>
+          <li
+            class="li-play"
+            data-src="Músicas/Binaural 2.mp3"
+            data-img="images/song2.jpg"
+          >
+            . Mind Camp
+          </li>
+          <li
+            class="li-play"
+            data-src="Músicas/Binaural 3.mp3"
+            data-img="images/song3.jpg"
+          >
+            . 40Hz Study Zen
+          </li>
+        </ul>
+      </div>
+
+      <div class="playlist" id="playlist2">
+        <h2>Instrumental</h2>
+        <ul class="play-ul">
+          <li
+            class="li-play"
+            data-src="Músicas/Instrumental 1.mp3"
+            data-img="images/song4.jpg"
+          >
+            . Soft Jazz Instrumental Jazz
+          </li>
+          <li
+            class="li-play"
+            data-src="Músicas/Instrumental 2.mp3"
+            data-img="images/song5.jpg"
+          >
+            . Slow Jazz Instrumental
+          </li>
+          <li
+            class="li-play"
+            data-src="Músicas/Instrumental 3.mp3"
+            data-img="images/song6.jpg"
+          >
+            . Soft Guitar Music
+          </li>
+        </ul>
+      </div>
+
+      <div class="playlist" id="playlist3">
+        <h2>Natureza</h2>
+        <ul class="play-ul">
+          <li
+            class="li-play"
+            data-src="Músicas/Natureza 1.mp3"
+            data-img="images/song7.jpg"
+          >
+            . Som da Natureza para Relaxar
+          </li>
+          <li
+            class="li-play"
+            data-src="Músicas/Natureza 2.mp3"
+            data-img="images/song8.jpg"
+          >
+            . Som de natureza
+          </li>
+          <li
+            class="li-play"
+            data-src="Músicas/Natureza 3.mp3"
+            data-img="images/song9.jpg"
+          >
+            . 18 Mind Over Natural Music
+          </li>
+        </ul>
       </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <div class="player-container">
+      <div class="player-music">
+        <div class="player-info">
+          <div id="currentSongInfo"></div>
+          <img src="" alt="" id="currentSongImg" />
+        </div>
+        <div class="player-controls">
+          <button id="prevBtn">&#9664;</button>
+          <button id="playBtn">&#9658;</button>
+          <button id="nextBtn">&#9654;</button>
+        </div>
+        <div class="progress-container">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+      </div>
+    </div>
+
+    <audio id="audioPlayer" src=""></audio>
+
     <script src="playlist.js"></script>
+    <script src="/Home/main.js"></script>
+    <script src="../Configuracoes/configuracoesscript.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <script>
       const firebaseConfig = {
         apiKey: "AIzaSyDAVyzcKFW9W5TWCCLuXTq4RgPmTv_loEc",

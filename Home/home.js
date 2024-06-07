@@ -1,44 +1,20 @@
 const highlights = [
-  "E-Commerce",
-  "Portfolio",
-  "Cadastro",
-  "Dashboard",
-  "Blog"
+  "Pomodoro",
+  "KanBan",
+  "Playlist",
+  "Calendário",
+  "Cadastro"
 ]
 
 const images = [
-  "./assets/Internet.svg",
-  "./assets/Login.svg",
-  "./assets/Dashboard.svg",
-  "./assets/Portfolio.svg",
-  "./assets/Bloging.svg"
+  "./assets/Pomodoro.svg",
+  "./assets/Kanban.svg",
+  "./assets/playlist.svg",
+  "./assets/Calendario.svg",
+  "./assets/Cadastro.svg"
 ]
 
-const steps_ref = document.getElementsByClassName("step");
-
-let step = 0;
-function update_step(){
-  if(!steps_ref[step].classList.contains("current"))
-      steps_ref[step].classList.add("current")
-
-  for(let i = 0; i < steps_ref.length; i++){
-      if(step != i){
-          if(steps_ref[i].classList.contains("current"))
-              steps_ref[i].classList.remove("current")
-      }
-  }
-
-
-
-  setTimeout(update_step, 2500)
-  
-  if(step + 1 <= 2)
-      step += 1
-  else   
-      step = 0
-}
-
-let cur = 0, letter = -1;
+let cur = 0, letter = -1, cur_img = 0;
 function typing_effect(){
   const highlight = document.getElementById("highlight")
   const current = highlights[cur] + "       "
@@ -49,19 +25,22 @@ function typing_effect(){
   else {
       highlight.innerHTML = ""
       cur += 1
+      cur_img += 1
       letter = -1
 
       if(cur >= highlights.length)
           cur = 0
+      
+      if(cur_img >= images.length)
+          cur_img = 0
 
-document.getElementById("page-image").src = images[cur]
+    document.getElementById("page-image").src = images[cur_img]
   }
 
   setTimeout(typing_effect, 250)
 }
 
 window.onload = function(){
-  update_step()
   typing_effect()
 }
 
@@ -115,3 +94,38 @@ const nav_functions = [
   }
 ]
   
+
+'use strict';
+
+/**
+* navbar variables
+*/
+const menuToggleBtn = document.querySelector("[data-navbar-toggle-btn]");
+const navbar = document.querySelector("[data-navbar]");
+
+/**
+* element toggle function
+*/
+
+const elemToggleFunc = function (elem) { elem.classList.toggle("active"); }
+
+menuToggleBtn.addEventListener("click", function () { elemToggleFunc(navbar); });
+
+
+
+
+/**
+* go to top
+*/
+
+const goTopBtn = document.querySelector("[data-go-top]");
+
+window.addEventListener("scroll", function () {
+
+if (window.scrollY >= 800) {
+  goTopBtn.classList.add("active");
+} else {
+  goTopBtn.classList.remove("active");
+}
+
+});

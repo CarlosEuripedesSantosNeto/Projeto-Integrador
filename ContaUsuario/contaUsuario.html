@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conta</title>
+    <link rel="stylesheet" href="contastyles.css" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="/Home/images/FOCO-ÍCONE.ico"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
+    />
+    <link rel="stylesheet" href="../Configuracoes/configuracoesstyles.css" />
+  </head>
+  <body>
+    <!--=============== HEADER ===============-->
+    <header class="header">
+      <div class="container">
+        <nav class="nav">
+          <a href="/Home/home.html" class="logo">
+            Foco <img src="/Home/images/FOCO + ÍCONE.png" />
+          </a>
+
+          <!-- Nav Icons -->
+          <div class="nav-icons" id="nav-icons">
+            <i class="ri-menu-line nav-abrir"></i>
+            <i class="ri-close-line nav-fechar"></i>
+          </div>
+
+          <!-- Nav Menu -->
+          <div class="nav-menu" id="nav-menu">
+            <ul class="nav-lista">
+              <li>
+                <a href="/Home/home.html" class="nav-links">Página Inicial</a>
+              </li>
+              <li>
+                <a href="/Pomodoro/pomodoro.html" class="nav-links">Pomodoro</a>
+              </li>
+              <li>
+                <a href="/Playlists/playlist.html" class="nav-links"
+                  >Playlists</a
+                >
+              </li>
+              <li>
+                <a href="/Calendario/index.html" class="nav-links"
+                  >Calendário</a
+                >
+              </li>
+
+              <!-- Link usuário -->
+              <li class="link-usuario">
+                <a href="#" class="nav-links"
+                  >Usuário<i class="ri-arrow-down-s-line usuario-icon"></i
+                ></a>
+                <ul class="usuario-menu">
+                  <li>
+                    <a href="../cadastro/cadastro.html" class="usuario-links"
+                      ><i class="ri-lock-line"></i> Cadastro</a
+                    >
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a href="../Configuracoes/configuracoes.html" class="nav-links"
+                  >Configurações</a
+                >
+              </li>
+              <li>
+                <a href="/Contatos/contatos.html" class="nav-links">Contatos</a>
+              </li>
+
+              <div id="profilePicContainer">
+                <img id="profilePic" src="" alt="Profile Picture" />
+              </div>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!--=============== CONTA ===============-->
+
+    <section class="bodyconta">
+      <div class="conteudoconta">
+        <div class="card back-face">
+          <img src="../Contatos/Fotos/Carlos.png" alt="Foto do Usuário" />
+          <!--depois adicionar JS para pegar os dados do usuario que fez o login-->
+          <h2>Cristiano Ronaldo</h2>
+        </div>
+
+        <div class="card">
+          <h3>Informações da Conta</h3>
+          <p class="emailconta"><strong>Email:</strong> omilior@gmail.com</p>
+          <p class="nomeconta">
+            <strong>Nome de usuário:</strong> Cristiano Ronaldo
+          </p>
+        </div>
+
+        <div class="actions">
+          <button class="button">Editar Perfil</button>
+          <button class="button">Logout</button>
+        </div>
+      </div>
+    </section>
+
+    <script src="main.js"></script>
+    <script src="../Configuracoes/configuracoesscript.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyDAVyzcKFW9W5TWCCLuXTq4RgPmTv_loEc",
+        authDomain: "banco-7eaec.firebaseapp.com",
+        databaseURL: "https://banco-7eaec-default-rtdb.firebaseio.com",
+        projectId: "banco-7eaec",
+        storageBucket: "banco-7eaec.appspot.com",
+        messagingSenderId: "273595281648",
+        appId: "1:273595281648:web:f24fe2f7d6066e46a69235",
+        measurementId: "G-T6PG24C641",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+
+      document.addEventListener("DOMContentLoaded", () => {
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            const userId = user.uid;
+
+            firebase
+              .database()
+              .ref(`users/${userId}`)
+              .once("value")
+              .then((snapshot) => {
+                const userData = snapshot.val();
+                if (userData && userData.profilePicture) {
+                  document.getElementById("profilePic").src =
+                    userData.profilePicture;
+                }
+              });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Configurações</title>
+    <link rel="stylesheet" href="configuracoesstyles.css" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="/Home/images/FOCO-ÍCONE.ico"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
+    />
+  </head>
+  <body>
+    <!--=============== HEADER ===============-->
+    <header class="header">
+      <div class="container">
+        <nav class="nav">
+          <a href="/Home/home.html" class="logo">
+            Foco <img src="/Home/images/FOCO + ÍCONE.png" />
+          </a>
+
+          <!-- Nav Icons -->
+          <div class="nav-icons" id="nav-icons">
+            <i class="ri-menu-line nav-abrir"></i>
+            <i class="ri-close-line nav-fechar"></i>
+          </div>
+
+          <!-- Nav Menu -->
+          <div class="nav-menu" id="nav-menu">
+            <ul class="nav-lista">
+              <li>
+                <a href="/Home/home.html" class="nav-links">Página Inicial</a>
+              </li>
+              <li>
+                <a href="/Pomodoro/pomodoro.html" class="nav-links">Pomodoro</a>
+              </li>
+              <li>
+                <a href="/Tarefas/index.html" class="nav-links">Tarefas</a>
+              </li>
+              <li>
+                <a href="/Playlists/playlist.html" class="nav-links"
+                  >Playlists</a
+                >
+              </li>
+              <li>
+                <a href="/Calendario/index.html" class="nav-links"
+                  >Calendário</a
+                >
+              </li>
+
+              <!-- Link usuário -->
+              <li class="link-usuario">
+                <a href="#" class="nav-links"
+                  >Usuário<i class="ri-arrow-down-s-line usuario-icon"></i
+                ></a>
+                <ul class="usuario-menu">
+                  <li>
+                    <a
+                      href="../ContaUsuario/contaUsuario.html"
+                      class="usuario-links"
+                      ><i class="ri-user-line"></i> Conta</a
+                    >
+                  </li>
+                  <li>
+                    <a href="../cadastro/cadastro.html" class="usuario-links"
+                      ><i class="ri-lock-line"></i> Cadastro</a
+                    >
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a href="/Contatos/contatos.html" class="nav-links">Contatos</a>
+              </li>
+
+              <div id="profilePicContainer">
+                <img id="profilePic" src="" alt="Profile Picture" />
+              </div>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <section class="bodyconfiguracoes">
+      <div class="conteudoconfiguracoes">
+        <h1>Configurações</h1>
+
+        <div class="configuracoes">
+          <h3>Notificações</h3>
+          <p>
+            <input type="checkbox" id="notificacoes" name="notificacoes" />
+            <label for="notificacoes">Deseja receber notificações</label>
+          </p>
+          <p>
+            <input
+              type="checkbox"
+              id="notificacoes-site"
+              name="notificacoes-site"
+            />
+            <label for="notificacoes-site"
+              >Deseja receber notificações de atualização do site</label
+            >
+          </p>
+        </div>
+
+        <div class="configuracoes">
+          <h3>Temas</h3>
+          <p><label for="tema">Escolha um tema</label></p>
+          <label class="switch">
+            <input type="checkbox" id="theme-toggle" />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="configuracoes">
+          <h3>Configurar senha</h3>
+          <p>Alterar senha</p>
+          <p>
+            <input
+              class="inputsenha"
+              type="password"
+              placeholder="Insira nova senha"
+            />
+          </p>
+          <p><button class="buttonsenha">Alterar</button></p>
+        </div>
+      </div>
+    </section>
+
+    <script src="configuracoesscript.js"></script>
+    <script src="/Home/main.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyDAVyzcKFW9W5TWCCLuXTq4RgPmTv_loEc",
+        authDomain: "banco-7eaec.firebaseapp.com",
+        databaseURL: "https://banco-7eaec-default-rtdb.firebaseio.com",
+        projectId: "banco-7eaec",
+        storageBucket: "banco-7eaec.appspot.com",
+        messagingSenderId: "273595281648",
+        appId: "1:273595281648:web:f24fe2f7d6066e46a69235",
+        measurementId: "G-T6PG24C641",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+
+      document.addEventListener("DOMContentLoaded", () => {
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            const userId = user.uid;
+
+            firebase
+              .database()
+              .ref(`users/${userId}`)
+              .once("value")
+              .then((snapshot) => {
+                const userData = snapshot.val();
+                if (userData && userData.profilePicture) {
+                  document.getElementById("profilePic").src =
+                    userData.profilePicture;
+                }
+              });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

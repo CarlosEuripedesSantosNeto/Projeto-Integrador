@@ -10,6 +10,11 @@
       rel="stylesheet"
     />
     <link
+      rel="shortcut icon"
+      type="image/png"
+      href="/Home/images/FOCO-ÍCONE.ico"
+    />
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
       integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
@@ -19,11 +24,9 @@
 
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../Configuracoes/configuracoesstyles.css" />
 
     <title>Pomodoro</title>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
   </head>
 
   <body>
@@ -31,8 +34,8 @@
     <header class="header">
       <div class="container">
         <nav class="nav">
-          <a href="pomodoro.html" class="logo">
-            <i class="ri-planet-line"></i> Pomodoro
+          <a href="/Home/home.html" class="logo">
+            Foco <img src="/Home/images/FOCO + ÍCONE.png" />
           </a>
 
           <!-- Nav Icons -->
@@ -55,6 +58,11 @@
                   >Playlists</a
                 >
               </li>
+              <li>
+                <a href="/Calendario/index.html" class="nav-links"
+                  >Calendário</a
+                >
+              </li>
 
               <!-- Link usuário -->
               <li class="link-usuario">
@@ -63,7 +71,9 @@
                 ></a>
                 <ul class="usuario-menu">
                   <li>
-                    <a href="#" class="usuario-links"
+                    <a
+                      href="../ContaUsuario/contaUsuario.html"
+                      class="usuario-links"
                       ><i class="ri-user-line"></i> Conta</a
                     >
                   </li>
@@ -75,7 +85,11 @@
                 </ul>
               </li>
 
-              <li><a href="#" class="nav-links">Configurações</a></li>
+              <li>
+                <a href="/Configuracoes/configuracoes.html" class="nav-links"
+                  >Configurações</a
+                >
+              </li>
               <li>
                 <a href="/Contatos/contatos.html" class="nav-links">Contatos</a>
               </li>
@@ -118,7 +132,10 @@
     <!--=============== JS ===============-->
     <script src="main.js"></script>
     <script src="pomodoro.js"></script>
-
+    <script src="../Configuracoes/configuracoesscript.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <script>
       const firebaseConfig = {
         apiKey: "AIzaSyDAVyzcKFW9W5TWCCLuXTq4RgPmTv_loEc",

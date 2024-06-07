@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tarefas</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!--=============== HEADER ===============-->
+    <header class="header">
+      <div class="container">
+        <nav class="nav">
+          <a href="/Home/index.html" class="logo">
+            <i class="ri-planet-line"></i> Pomodoro
+          </a>
+
+          <!-- Nav Icons -->
+          <div class="nav-icons" id="nav-icons">
+            <i class="ri-menu-line nav-abrir"></i>
+            <i class="ri-close-line nav-fechar"></i>
+          </div>
+
+          <!-- Nav Menu -->
+          <div class="nav-menu" id="nav-menu">
+            <ul class="nav-lista">
+              <li>
+                <a href="/Home/home.html" class="nav-links">Página Inicial</a>
+              </li>
+
+              <li>
+                <a href="/Pomodoro/pomodoro.html" class="nav-links">Pomodoro</a>
+              </li>
+
+              <li>
+                <a href="/Playlists/playlist.html" class="nav-links"
+                  >Playlists</a
+                >
+              </li>
+
+                <!-- Link usuário -->
+                <li class="link-usuario">
+                  <a href="#" class="nav-links"
+                    >Usuário<i class="ri-arrow-down-s-line usuario-icon"></i
+                  ></a>
+                  <ul class="usuario-menu">
+                    <li>
+                      <a href="#" class="usuario-links"
+                        ><i class="ri-user-line"></i> Conta</a
+                      >
+                    </li>
+                    <li>
+                      <a href="../cadastro/cadastro.html" class="usuario-links"
+                        ><i class="ri-lock-line"></i> Cadastro</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+
+                <li><a href="#" class="nav-links">Configurações</a></li>
+                <li>
+                  <a href="/Contatos/contatos.html" class="nav-links">Contatos</a>
+                </li>
+              </ul>
+              <div id="profilePicContainer">
+                <img id="profilePic" src="" alt="Profile Picture" />
+              </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!--=============== TAREFAS ===============-->
+    <div class="tarefas-container">
+      <!-- Quadro de tarefas para fazer -->
+      <div class="tarefas">
+        <h2>PENDENTE</h2>
+        <div class="quadro-tarefas" id="todo">
+          <!-- Cartões de tarefas -->
+        </div>
+      </div>
+      <!-- Quadro de tarefas sendo feitas -->
+      <div class="tarefas">
+        <h2>EM ANDAMENTO</h2>
+        <div class="quadro-tarefas" id="doing"></div>
+      </div>
+      <!-- Quadro de tarefas já feitas -->
+      <div class="tarefas">
+        <h2>FEITO</h2>
+        <div class="quadro-tarefas" id="done"></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="task">
+        <h2><label for="task">ADICIONAR TAREFA</label></h2>
+        <form id="addTask" action="POST">
+          <input id="task" name="task" type="text" autocomplete="off" />
+          <button type="submit">
+            <img src="./icons/plus.png" alt="Add task" />
+          </button>
+        </form>
+      </div>
+      <div class="info">
+        <h1 class="logo-tarefas">POMO<br />DORO</h1>
+        <p class="slogan">Lista<br />de tarefas</p>
+      </div>
+      <div class="garbage">
+        <h2>Lixeira</h2>
+        <div class="quadro-tarefas" id="garbage"></div>
+      </div>
+    </div>
+
+    <!-- Scripts do Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyDAVyzcKFW9W5TWCCLuXTq4RgPmTv_loEc",
+        authDomain: "banco-7eaec.firebaseapp.com",
+        projectId: "banco-7eaec",
+        storageBucket: "banco-7eaec.appspot.com",
+        messagingSenderId: "273595281648",
+        appId: "1:273595281648:web:f24fe2f7d6066e46a69235",
+        measurementId: "G-T6PG24C641",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <!-- Script de manipulação das tarefas -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const formTask = document.getElementById("addTask");
+        const taskInput = document.getElementById("task");
+
+        formTask.addEventListener("submit", (event) => {
+          event.preventDefault();
+          if (taskInput.value.trim() !== "") {
+            addCard(task.value);
+            task.value = "";
+          }
+        });
+
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            loadTasks(user.uid);
+          } else {
+            console.log("No user is signed in.");
+          }
+        });
+
+        function loadTasks(userId) {
+          firebase
+            .database()
+            .ref("/tarefas/" + userId)
+            .once("value", (snapshot) => {
+              const tasks = snapshot.val();
+              if (tasks) {
+                // Limpa os quadros de tarefas antes de carregá-las
+                clearTaskBoards();
+
+                for (const taskId in tasks) {
+                  addCard(tasks[taskId].content, tasks[taskId].status, taskId);
+                }
+              }
+            });
+        }
+
+        function clearTaskBoards() {
+          document.getElementById("todo").innerHTML = "";
+          document.getElementById("doing").innerHTML = "";
+          document.getElementById("done").innerHTML = "";
+          document.getElementById("garbage").innerHTML = "";
+        }
+
+        function addCard(value, status = "todo", taskId = null) {
+          const column = document.getElementById(status);
+          const newCard = document.createElement("div");
+          newCard.classList.add("card");
+          newCard.draggable = true;
+          newCard.dataset.id =
+            taskId || firebase.database().ref().child("tarefas").push().key;
+          newCard.innerHTML =
+            `
+            <div class="status ${status}"></div> 
+            <div class="content"><p>` +
+            value +
+            `</p></div>
+          `;
+          newCard.addEventListener("dragstart", dragStart);
+          newCard.addEventListener("drag", drag);
+          newCard.addEventListener("dragend", dragEnd);
+          column.appendChild(newCard);
+
+          if (!taskId) {
+            const userId = firebase.auth().currentUser.uid;
+            const taskData = {
+              id: newCard.dataset.id,
+              content: value,
+              status: status,
+            };
+            const updates = {};
+            updates["/tarefas/" + userId + "/" + newCard.dataset.id] = taskData;
+            firebase.database().ref().update(updates);
+          }
+        }
+
+        const dropZones = document.querySelectorAll(".quadro-tarefas");
+
+        dropZones.forEach((dropZone) => {
+          dropZone.addEventListener("dragenter", dragEnter);
+          dropZone.addEventListener("dragover", dragOver);
+          dropZone.addEventListener("dragleave", dragLeave);
+          dropZone.addEventListener("drop", drop);
+        });
+
+        function dragStart() {
+          dropZones.forEach((dropZone) => dropZone.classList.add("highlight"));
+          this.classList.add("dragging");
+
+          switch (this.parentElement.id) {
+            case "todo":
+              this.firstElementChild.classList.remove("todo");
+              break;
+            case "doing":
+              this.firstElementChild.classList.remove("doing");
+              break;
+            case "done":
+              this.firstElementChild.classList.remove("done");
+              break;
+            case "garbage":
+              this.firstElementChild.classList.remove("todo");
+              break;
+            default:
+              break;
+          }
+        }
+
+        function drag() {}
+
+        function dragEnd() {
+          dropZones.forEach((dropZone) =>
+            dropZone.classList.remove("highlight")
+          );
+          this.classList.remove("dragging");
+
+          switch (this.parentElement.id) {
+            case "todo":
+              this.firstElementChild.classList.add("todo");
+              updateTaskStatus(this, "todo");
+              break;
+            case "doing":
+              this.firstElementChild.classList.add("doing");
+              updateTaskStatus(this, "doing");
+              break;
+            case "done":
+              this.firstElementChild.classList.add("done");
+              updateTaskStatus(this, "done");
+              break;
+            case "garbage":
+              this.parentElement.removeChild(this);
+              deleteTask(this);
+              break;
+            default:
+              break;
+          }
+        }
+
+        function dragEnter() {}
+
+        function dragOver(event) {
+          event.preventDefault();
+          this.classList.add("over");
+
+          const cardBeingDragged = document.querySelector(".dragging");
+
+          this.appendChild(cardBeingDragged);
+        }
+
+        function dragLeave() {
+          this.classList.remove("over");
+        }
+
+        function drop() {
+          this.classList.remove("over");
+        }
+
+        function updateTaskStatus(card, newStatus) {
+          const userId = firebase.auth().currentUser.uid;
+          const taskId = card.dataset.id;
+
+          const updates = {};
+          updates["/tarefas/" + userId + "/" + taskId + "/status"] = newStatus;
+          firebase.database().ref().update(updates);
+        }
+
+        function deleteTask(card) {
+          const userId = firebase.auth().currentUser.uid;
+          const taskId = card.dataset.id;
+
+          firebase
+            .database()
+            .ref("/tarefas/" + userId + "/" + taskId)
+            .remove();
+        }
+
+        const garbageZone = document.getElementById("garbage");
+
+        garbageZone.addEventListener("dragenter", dragEnter);
+        garbageZone.addEventListener("dragover", dragOver);
+        garbageZone.addEventListener("dragleave", dragLeave);
+        garbageZone.addEventListener("drop", function (event) {
+          event.preventDefault();
+          const cardBeingDragged = document.querySelector(".dragging");
+          const userId = firebase.auth().currentUser.uid;
+          const taskId = cardBeingDragged.dataset.id;
+          firebase
+            .database()
+            .ref("/tarefas/" + userId + "/" + taskId)
+            .remove();
+          cardBeingDragged.remove();
+        });
+
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            const userId = user.uid;
+
+            firebase
+              .database()
+              .ref(`users/${userId}`)
+              .once("value")
+              .then((snapshot) => {
+                const userData = snapshot.val();
+                if (userData && userData.profilePicture) {
+                  document.getElementById("profilePic").src =
+                    userData.profilePicture;
+                }
+              });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

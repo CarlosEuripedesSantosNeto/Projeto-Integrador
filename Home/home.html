@@ -1,159 +1,391 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="home.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="/Configuracoes/configuracoesstyles.css">
+    <link rel="shortcut icon" type="image/png" href="images/FOCO-ÍCONE.ico">
     <!--=============== ICONS ===============-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
-      integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <title>Página Inicial</title>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-  </head>
-  <body>
-    <!--=============== HEADER ===============-->
-    <header class="header">
-      <div class="container">
-        <nav class="nav">
+</head>
+<body>
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body id="top">
+
+   <!--=============== HEADER ===============-->
+   <header class="header">
+    <div class="container">
+       <nav class="nav">
           <a href="home.html" class="logo">
-            <i class="ri-planet-line"></i> Pomodoro
+            Foco <img src="images/FOCO + ÍCONE.png"> 
           </a>
 
           <!-- Nav Icons -->
           <div class="nav-icons" id="nav-icons">
-            <i class="ri-menu-line nav-abrir"></i>
-            <i class="ri-close-line nav-fechar"></i>
+             <i class="ri-menu-line nav-abrir"></i>
+             <i class="ri-close-line nav-fechar"></i>
           </div>
 
           <!-- Nav Menu -->
           <div class="nav-menu" id="nav-menu">
-            <ul class="nav-lista">
-              <li>
-                <a href="/Pomodoro/pomodoro.html" class="nav-links">Pomodoro</a>
-              </li>
-              <li>
-                <a href="/Tarefas/index.html" class="nav-links">Tarefas</a>
-              </li>
-              <li>
-                <a href="/Agenda/index.html" class="nav-links">Agenda</a>
-              </li>
-              <li>
-                <a href="/Playlists/playlist.html" class="nav-links"
-                  >Playlists</a
-                >
-              </li>
+             
+             <ul class="nav-lista">
+                <li><a href="/Pomodoro/pomodoro.html" class="nav-links">Pomodoro</a></li>
+                <li><a href="/Tarefas/index.html" class="nav-links">Tarefas</a></li>
+                <li><a href="/Playlists/playlist.html" class="nav-links">Playlists</a></li>
+                <li><a href="/Calendario/index.html" class="nav-links">Calendário</a></li>
 
-              <!-- Link usuário -->
-              <li class="link-usuario">
-                <a href="/Teste/index.html" class="nav-links"
-                  >Usuário<i class="ri-arrow-down-s-line usuario-icon"></i
-                ></a>
-                <ul class="usuario-menu">
-                  <li>
-                    <a href="#" class="usuario-links"
-                      ><i class="ri-user-line"></i> Conta</a
-                    >
-                  </li>
-                  <li>
-                    <a href="../cadastro/cadastro.html" class="usuario-links"
-                      ><i class="ri-lock-line"></i> Cadastro</a
-                    >
-                  </li>
-                </ul>
-              </li>
+                <!-- Link usuário -->
+                <li class="link-usuario">
+                   <a href="#" class="nav-links">Usuário<i class="ri-arrow-down-s-line usuario-icon"></i></a>
+                   <ul class="usuario-menu">
+                      <li><a href="../ContaUsuario/contaUsuario.html" class="usuario-links"><i class="ri-user-line"></i> Conta</a></li>
+                      <li><a href="../cadastro/cadastro.html" class="usuario-links"><i class="ri-lock-line"></i> Cadastro</a></li>
+                   </ul>
+                </li>
 
-              <li><a href="#" class="nav-links">Configurações</a></li>
-              <li>
-                <a href="/Contatos/contatos.html" class="nav-links">Contatos</a>
-              </li>
-
-              <div id="profilePicContainer">
-                <img id="profilePic" src="" alt="Profile Picture" />
-              </div>
-            </ul>
+                <li><a href="../Configuracoes/configuracoes.html" class="nav-links">Configurações</a></li>
+                <li><a href="/Contatos/contatos.html" class="nav-links">Contatos</a></li>
+                 
+                <div id="profilePicContainer">
+                  <img id="profilePic" src="" alt="Profile Picture" />
+                </div>
+             
+             </ul>
           </div>
-        </nav>
-      </div>
-    </header>
+       </nav>
+    </div>
+   </header>
 
-    <!--=============== LANDING PAGE ===============-->
-
+    <!--=============== MAIN CONTENT ===============-->
     <main>
-      <div>
-        <h3>Nossos ferramentas</h3>
-
-        <h1>
-          <span id="highlight">E-Commerce</span>
-          <span id="typing-bar">|</span>
-        </h1>
+      <div class="content">
+          <h3>Nossas ferramentas</h3>
+          <h1>
+              <span id="highlight">E-Commerce</span>
+              <span id="typing-bar">|</span>
+          </h1>
       </div>
-
-      <div>
-        <img id="page-image" src="./assets/Internet.svg" alt="" />
+      <div class="image-container">
+          <img id="page-image" src="./assets/Pomodoro.svg" alt="Internet Illustration">
       </div>
-    </main>
+  </main>
 
-    <footer>
-      <section id="s1" class="step current"></section>
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about-top">
+          <h2 class="h2 section-title">O que fazemos</h2>
+          <p class="section-text">
+            Focamos em ajudar pessoas com TDAH, o site oferece uma série de ferramentas projetadas para aumentar a produtividade e aprimorar a organização.
+          </p>
+          <ul class="about-list">
+            <li>
+              <div class="about-card">
+                <div class="card-icon">
+                  <ion-icon name="timer-outline"></ion-icon>
+                </div>
+                <h3 class="h3 card-title">Pomodoro</h3>
+                <p class="card-text">
+                  O método Pomodoro é uma técnica de gestão de tempo, que ajuda a melhorar a produtividade e a concentração, reduzindo a procrastinação.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="about-card">
+                <div class="card-icon">
+                  <ion-icon name="checkmark-done-outline"></ion-icon>
+                </div>
+                <h3 class="h3 card-title">KanBan</h3>
+                <p class="card-text">
+                  O Kanban é um método de gestão visual. Facilitando o acompanhamento do progresso, a identificação de obstáculos e a melhoria contínua da eficiência da equipe.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="about-card">
+                <div class="card-icon">
+                  <ion-icon name="musical-notes-outline"></ion-icon>
+                </div>
+                <h3 class="h3 card-title">Playlists</h3>
+                <p class="card-text">
+                  Playlists são seleções de músicas organizadas para diferentes atividades ou estados de espírito, proporcionando uma trilha sonora personalizada para acompanhar as tarefas do dia-a-dia.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="about-card">
+                <div class="card-icon">
+                  <ion-icon name="calendar-outline"></ion-icon>
+                </div>
+                <h3 class="h3 card-title">Calendário</h3>
+                <p class="card-text">
+                  O calendário é uma ferramenta essencial para planejamento e organização do tempo, ajudando a manter o controle de compromissos, prazos e tarefas importantes de forma eficiente.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="about-card">
+                <div class="card-icon">
+                  <ion-icon name="settings-outline"></ion-icon>
+                </div>
+                <h3 class="h3 card-title">Configurações</h3>
+                <p class="card-text">
+                  Configurar um site de maneira adequada é fundamental para garantir uma navegação intuitiva e eficiente para os usuários, além de otimizar o desempenho e a segurança da plataforma.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="about-card">
+                <div class="card-icon">
+                  <ion-icon name="call-outline"></ion-icon>
+                </div>
+                <h3 class="h3 card-title">Contatos</h3>
+                <p class="card-text">
+                  Contate-nos de forma fácil e rápida pela página de contatos em nosso site. Nossa equipe está pronta para responder suas perguntas e fornecer o suporte necessário com eficiência. Estamos aqui para ajudar!
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+   
+        <div class="about-bottom">
+          <figure class="about-bottom-banner">
+            <img src="images/about-banner.png" alt="about banner" class="about-banner">
+          </figure>
+          <div class="about-bottom-content">
+            <h2 class="h2 section-title">Nosso objetivo é ajudar você em seu desenvolvimento</h2>
+            <p class="section-text">
+              Nosso objetivo é oferecer suporte para seu desenvolvimento. Juntos, vamos encontrar estratégias eficazes para potencializar suas habilidades e superar desafios, promovendo uma jornada de crescimento e realização.
+            </p>
+            <a href="/cadastro/cadastro.html"><button class="btn btn-primary">Inscreva-se gratuitamente</button></a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <section id="s2" class="step"></section>
+      <section class="features" id="features">
+        <div class="container">
+          <h2 class="h2 section-title">O que é TDAH?</h2>
+          <p class="section-text">
+          O Transtorno do Déficit de Atenção e Hiperatividade é uma condição comportamental caracterizada por sintomas como a desatenção e a impulsividade, e que pode começar ou não na infância e durar até a vida adulta.
+          </p>
+          <ul class="features-list">
+            <li class="features-item">
+              <figure class="features-item-banner">
+                <img src="images/Diagnostico.svg" alt="feature banner">
+              </figure>
+              <div class="feature-item-content">
+                <h3 class="h2 item-title">Diagnóstico</h3>
+                <p class="item-text">
+                Não existe um exame específico para se diagnosticar o TDAH, como um exame de sangue ou um exame de imagem. O exame que diagnostica o transtorno é clínico e deve ser realizado com acompanhamento médico.
+                </p>
+              </div>
+            </li>
+            <li class="features-item">
+              <figure class="features-item-banner">
+                <img src="images/Tratamento.svg" alt="feature banner">
+              </figure>
+              <div class="feature-item-content">
+                <h3 class="h2 item-title">Tratamento</h3>
+                <p class="item-text">
+                O tratamento pode significar uma mudança na vida do paciente e familiares, mas é importante conhecer a condição e aprender o que é e o que não é TDAH. Grupos de apoio, exercícios e atividades também podem ajudar a focar e gastar energia de forma positiva.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+       </section>
+ 
+       <section class="contact" id="contact">
+         <div class="container">
+           <div class="contact-content">
+             <h2 class="h2 contact-title">Vamos te ajudar em que precisar</h2>
+             <figure class="contact-banner">
+               <img src="images/contact.png" alt="contact banner">
+             </figure>
+           </div>
+           <form action="" class="contact-form">
+             <div class="input-wrapper">
+               <label for="name" class="input-label">Nome</label>
+               <input type="text" name="name" id="name" required placeholder="Nome do tipo" class="input-field">
+             </div>
+             <div class="input-wrapper">
+               <label for="phone" class="input-label">Telefone</label>
+               <input type="tel" name="phone" id="phone" placeholder="Digite o número de telefone" class="input-field">
+             </div>
+             <div class="input-wrapper">
+               <label for="email" class="input-label">Endereço eletrônico</label>
+               <input type="email" name="email" id="email" required placeholder="Digite o endereço de e-mail" class="input-field">
+             </div>
+             <div class="input-wrapper">
+               <label for="message" class="input-label">Como podemos ajudar?</label>
+               <textarea name="message" id="message" placeholder="Descrição do tipo" required
+                 class="input-field"></textarea>
+             </div>
+             <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+           </form>
+         </div>
+       </section>
+     </article>
+   </main>
 
-      <section id="s3" class="step"></section>
-    </footer>
-    <script src="home.js"></script>
-    <script src="main.js"></script>
+    <!--=============== FOOTER ===============-->
 
-    <script>
-      const firebaseConfig = {
-        apiKey: "AIzaSyDAVyzcKFW9W5TWCCLuXTq4RgPmTv_loEc",
-        authDomain: "banco-7eaec.firebaseapp.com",
-        databaseURL: "https://banco-7eaec-default-rtdb.firebaseio.com",
-        projectId: "banco-7eaec",
-        storageBucket: "banco-7eaec.appspot.com",
-        messagingSenderId: "273595281648",
-        appId: "1:273595281648:web:f24fe2f7d6066e46a69235",
-        measurementId: "G-T6PG24C641",
-      };
+  <footer>
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-brand">
+          <a class="logo">
+            Foco <img src="images/FOCO + ÍCONE.png"> 
+          </a>
+          <p class="footer-text">Siga-nos em</p>
+  
+          <ul class="social-list">
+            <li>
+              <a href="https://github.com/codewithsadee" class="social-link">
+                <ion-icon name="logo-github"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="https://instagram.com/codewithsadee" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="https://youtube.com/c/codewithsadee" class="social-link">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+  
+        <div class="footer-link-box">
+          <ul class="footer-link-list">
+            <li>
+              <h3 class="h4 link-title">Empresa</h3>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Sobre Nós</a>
+            </li> 
+            <li>
+              <a href="#" class="footer-link">Recursos</a>
+            </li> 
+            <li>
+              <a href="#" class="footer-link">Preços</a>
+            </li>
+          </ul>
+  
+          <ul class="footer-link-list">
+            <li>
+              <h3 class="h4 link-title">Produtos</h3>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Blog</a>
+            </li> 
+            <li>
+              <a href="#" class="footer-link">Centro de Ajuda</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Contato</a>
+            </li>
+          </ul>
+  
+          <ul class="footer-link-list">
+            <li>
+              <h3 class="h4 link-title">Recursos</h3>
+            </li> 
+            <li>
+              <a href="#" class="footer-link">FAQ’S</a>
+            </li> 
+            <li>
+              <a href="#" class="footer-link">Testemunho</a>
+            </li>  
+            <li>
+              <a href="#" class="footer-link">Termos & Condições</a>
+            </li> 
+          </ul>
+  
+          <ul class="footer-link-list">
+            <li>
+              <h3 class="h4 link-title">Relevante</h3>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Por quê</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Produtos</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Clientes</a>
+            </li>
+  
+          </ul> 
+        </div>  
+      </div>
+    </div>
+  </footer>
 
-      firebase.initializeApp(firebaseConfig);
+   <a href="#top" class="go-top active" data-go-top>
+     <ion-icon name="chevron-up-outline"></ion-icon>
+   </a>
 
-      document.addEventListener("DOMContentLoaded", () => {
-        firebase.auth().onAuthStateChanged((user) => {
-          if (user) {
-            const userId = user.uid;
+   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+   <script src="home.js"></script>
+   <script src="main.js"></script>
+   <script src="/Configuracoes/configuracoesscript.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+   <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDAVyzcKFW9W5TWCCLuXTq4RgPmTv_loEc",
+      authDomain: "banco-7eaec.firebaseapp.com",
+      databaseURL: "https://banco-7eaec-default-rtdb.firebaseio.com",
+      projectId: "banco-7eaec",
+      storageBucket: "banco-7eaec.appspot.com",
+      messagingSenderId: "273595281648",
+      appId: "1:273595281648:web:f24fe2f7d6066e46a69235",
+      measurementId: "G-T6PG24C641",
+    };
 
-            firebase
-              .database()
-              .ref(`users/${userId}`)
-              .once("value")
-              .then((snapshot) => {
-                const userData = snapshot.val();
-                if (userData && userData.profilePicture) {
-                  document.getElementById("profilePic").src =
-                    userData.profilePicture;
-                }
-              });
-          }
-        });
+    firebase.initializeApp(firebaseConfig);
+
+    document.addEventListener("DOMContentLoaded", () => {
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          const userId = user.uid;
+
+          firebase
+            .database()
+            .ref(`users/${userId}`)
+            .once("value")
+            .then((snapshot) => {
+              const userData = snapshot.val();
+              if (userData && userData.profilePicture) {
+                document.getElementById("profilePic").src =
+                  userData.profilePicture;
+              }
+            });
+        }
       });
-    </script>
-  </body>
+    });
+  </script>
+</body>
 </html>

@@ -10,18 +10,24 @@
       rel="stylesheet"
     />
     <link
+      rel="shortcut icon"
+      type="image/png"
+      href="/Home/images/FOCO-ÍCONE.ico"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../Configuracoes/configuracoesstyles.css" />
   </head>
   <body>
     <!--=============== HEADER ===============-->
     <header class="header">
       <div class="container">
         <nav class="nav">
-          <a href="/Home/index.html" class="logo">
-            <i class="ri-planet-line"></i> Pomodoro
+          <a href="/Home/home.html" class="logo">
+            Foco <img src="/Home/images/FOCO + ÍCONE.png" />
           </a>
 
           <!-- Nav Icons -->
@@ -36,44 +42,54 @@
               <li>
                 <a href="/Home/home.html" class="nav-links">Página Inicial</a>
               </li>
-
               <li>
                 <a href="/Pomodoro/pomodoro.html" class="nav-links">Pomodoro</a>
               </li>
-
               <li>
                 <a href="/Playlists/playlist.html" class="nav-links"
                   >Playlists</a
                 >
               </li>
+              <li>
+                <a href="/Calendario/index.html" class="nav-links"
+                  >Calendário</a
+                >
+              </li>
 
-                <!-- Link usuário -->
-                <li class="link-usuario">
-                  <a href="#" class="nav-links"
-                    >Usuário<i class="ri-arrow-down-s-line usuario-icon"></i
-                  ></a>
-                  <ul class="usuario-menu">
-                    <li>
-                      <a href="#" class="usuario-links"
-                        ><i class="ri-user-line"></i> Conta</a
-                      >
-                    </li>
-                    <li>
-                      <a href="../cadastro/cadastro.html" class="usuario-links"
-                        ><i class="ri-lock-line"></i> Cadastro</a
-                      >
-                    </li>
-                  </ul>
-                </li>
+              <!-- Link usuário -->
+              <li class="link-usuario">
+                <a href="#" class="nav-links"
+                  >Usuário<i class="ri-arrow-down-s-line usuario-icon"></i
+                ></a>
+                <ul class="usuario-menu">
+                  <li>
+                    <a
+                      href="../ContaUsuario/contaUsuario.html"
+                      class="usuario-links"
+                      ><i class="ri-user-line"></i> Conta</a
+                    >
+                  </li>
+                  <li>
+                    <a href="../cadastro/cadastro.html" class="usuario-links"
+                      ><i class="ri-lock-line"></i> Cadastro</a
+                    >
+                  </li>
+                </ul>
+              </li>
 
-                <li><a href="#" class="nav-links">Configurações</a></li>
-                <li>
-                  <a href="/Contatos/contatos.html" class="nav-links">Contatos</a>
-                </li>
-              </ul>
+              <li>
+                <a href="/Configuracoes/configuracoes.html" class="nav-links"
+                  >Configurações</a
+                >
+              </li>
+              <li>
+                <a href="/Contatos/contatos.html" class="nav-links">Contatos</a>
+              </li>
+
               <div id="profilePicContainer">
                 <img id="profilePic" src="" alt="Profile Picture" />
               </div>
+            </ul>
           </div>
         </nav>
       </div>
@@ -120,6 +136,7 @@
       </div>
     </div>
 
+    <script src="../Configuracoes/configuracoesscript.js"></script>
     <!-- Scripts do Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
@@ -332,6 +349,28 @@
           cardBeingDragged.remove();
         });
 
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            const userId = user.uid;
+
+            firebase
+              .database()
+              .ref(`users/${userId}`)
+              .once("value")
+              .then((snapshot) => {
+                const userData = snapshot.val();
+                if (userData && userData.profilePicture) {
+                  document.getElementById("profilePic").src =
+                    userData.profilePicture;
+                }
+              });
+          }
+        });
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
         firebase.auth().onAuthStateChanged((user) => {
           if (user) {
             const userId = user.uid;

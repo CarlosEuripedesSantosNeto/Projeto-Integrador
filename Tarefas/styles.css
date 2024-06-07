@@ -10,8 +10,8 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  font-size: .938rem;
-  background-color: #1e3662;
+  font-size: 0.938rem;
+  background-color: black;
   overflow-y: scroll;
 }
 
@@ -34,8 +34,8 @@ a {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #06214b;
-  box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
+  background-color: #003ea8;
+  box-shadow: 0 2px 16px hsla(220, 32%, 8%, 0.3);
   z-index: 100;
 }
 
@@ -44,8 +44,8 @@ a {
   height: 3.5rem;
 }
 
-.logo, 
-.nav-abrir, 
+.logo,
+.nav-abrir,
 .nav-fechar {
   color: white;
 }
@@ -53,13 +53,14 @@ a {
 .logo {
   display: inline-flex;
   align-items: center;
-  column-gap: .25rem;
+  column-gap: 0.25rem;
   font-weight: 600;
 }
 
-.logo i {
-  font-weight: initial;
-  font-size: 1.25rem;
+.logo img {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
 }
 
 .nav-icons {
@@ -68,7 +69,7 @@ a {
   height: 32px;
 }
 
-.nav-abrir, 
+.nav-abrir,
 .nav-fechar {
   position: absolute;
   width: max-content;
@@ -77,7 +78,11 @@ a {
   margin: auto;
   font-size: 1.25rem;
   cursor: pointer;
-  transition: opacity .1s, transform .4s;
+  transition: opacity 0.1s, transform 0.4s;
+}
+
+.nav-fechar {
+  opacity: 0;
 }
 
 #profilePicContainer {
@@ -113,35 +118,34 @@ a {
     overflow: auto;
     pointer-events: none;
     opacity: 0;
-    transition: top .4s, opacity .3s;
+    transition: top 0.4s, opacity 0.3s;
   }
   .nav-menu::-webkit-scrollbar {
     width: 0;
   }
   .nav-lista {
-    background-color: #06214b;
+    background-color: #003ea8;
     padding-top: 1rem;
-  }  
-
-  .image{
-    display: none;
   }
 
+  .image {
+    display: none;
+  }
 }
 
 .nav-links {
   color: white;
-  background-color: #06214b;
+  background-color: #003ea8;
   font-weight: 600;
   padding: 1.25rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: background-color .3s;
+  transition: background-color 0.3s;
 }
 
 .nav-links:hover {
-  background-color: #06214b;
+  background-color: #003ea8;
 }
 
 .menu-responsivo {
@@ -168,18 +172,18 @@ a {
 .usuario-icon {
   font-size: 1.25rem;
   font-weight: initial;
-  transition: transform .4s;
+  transition: transform 0.4s;
 }
 
 .usuario-links {
   padding: 1.25rem 1.25rem 1.25rem 2.5rem;
   color: white;
-  background-color: #06214b;
+  background-color: #003ea8;
   display: flex;
   align-items: center;
-  column-gap: .5rem;
+  column-gap: 0.5rem;
   font-weight: 600;
-  transition: background-color .3s;
+  transition: background-color 0.3s;
 }
 
 .usuario-links i {
@@ -188,18 +192,18 @@ a {
 }
 
 .usuario-links:hover {
-  background-color: #06214b;
+  background-color: #003ea8;
 }
 
 .usuario-menu {
   max-height: 0;
   overflow: hidden;
-  transition: max-height .4s ease-out;
+  transition: max-height 0.4s ease-out;
 }
 
 .link-usuario:hover .usuario-menu {
   max-height: 1000px;
-  transition: max-height .4s ease-in;
+  transition: max-height 0.4s ease-in;
 }
 
 .link-usuario:hover .usuario-icon {
@@ -239,7 +243,7 @@ a {
     height: 100%;
     padding: 0;
     justify-content: initial;
-    column-gap: .25rem;
+    column-gap: 0.25rem;
   }
   .nav-links:hover {
     background-color: transparent;
@@ -257,14 +261,14 @@ a {
     top: 6rem;
     opacity: 0;
     pointer-events: none;
-    transition: opacity .3s, top .3s;
+    transition: opacity 0.3s, top 0.3s;
   }
 
   .usuario-links {
     padding-inline: 1rem 3.5rem;
   }
 
-   .usuario-links {
+  .usuario-links {
     padding-inline: 2rem;
   }
 
@@ -272,13 +276,13 @@ a {
     opacity: 1;
     top: 5.5rem;
     pointer-events: initial;
-    transition: top .3s;
+    transition: top 0.3s;
   }
 }
 
 /*=============== TAREFAS ===============*/
 
-.tarefas-container{
+.tarefas-container {
   width: 100%;
   min-height: 100%;
   flex: 1;
@@ -286,201 +290,227 @@ a {
   justify-content: space-between;
 }
 
-.tarefas{
+.tarefas {
   width: 33%;
   min-height: 100%;
   margin: 18vh 15px;
-  background-color: #1e3662;
-  border: 1px solid #06214b;
+  background-color: black;
+  border: 1px solid #003ea8;
   border-radius: 5px;
 }
 
-#doing{
+#doing {
   margin: 0 0;
 }
 
-.tarefas h2{
+.tarefas h2 {
   text-align: center;
   padding: 30px 15px 15px 15px;
   color: white;
 }
 
-.quadro-tarefas{
+.quadro-tarefas {
   padding: 15px;
   width: 100%;
   height: calc(100% - 80px);
-  transition: .2s;
+  transition: 0.2s;
 }
 
-.card{
+.card {
   width: 100%;
   height: auto;
   padding: 15px;
   margin-bottom: 15px;
-  background-color: #06214b;
-  box-shadow: 0 2px 2px -1px #06214b;
+  background-color: #003ea8;
+  box-shadow: 0 2px 2px -1px #003ea8;
   border-radius: 5px;
   font-weight: 600;
   font-size: 18px;
   word-wrap: break-word;
 
-  transition: .2s;
+  transition: 0.2s;
 }
 
-.card .content{
+.card .content {
   color: white;
 }
 
-.card:hover{
+.card:hover {
   cursor: move;
 }
 
-.status{
+.status {
   width: 10%;
   height: 5px;
   margin-bottom: 15px;
   border-radius: 5px;
-  background-color: #06214b;
+  background-color: #003ea8;
 }
 
-.todo{
+.todo {
   background-color: red;
 }
 
-.doing{
+.doing {
   background-color: yellow;
 }
 
-.done{
+.done {
   background-color: green;
 }
 
-.highlight{
+.highlight {
   background-color: #df951f08;
 }
 
-.dragging{
+.dragging {
   cursor: move;
   opacity: 0.3;
 }
 
-.over{
+.over {
   background-color: #4ccd3711;
 }
 
-.footer{
+.footer {
   width: 100%;
   height: auto;
   display: flex;
   justify-content: space-between;
 }
 
-.task{
+.task {
   width: 33%;
   height: 100px;
   margin: 30px 15px 0px 15px;
   padding: 15px;
-  background-color: #1e3662;
-  border: 1px solid #06214b;
+  background-color: black;
+  border: 1px solid #003ea8;
   border-radius: 5px;
 }
 
-.task form{
+.task form {
   display: flex;
   justify-content: space-between;
 }
 
-.task h2{
+.task h2 {
   color: white;
   text-align: center;
-  padding-bottom:5px;
+  padding-bottom: 5px;
 }
 
-.task input{
-  width: 80%;
+.task input {
+  width: 100%;
   height: 30px;
-  background-color: #06214b;
-  border: 2px solid #06214b;
+  background-color: white;
   border-radius: 5px;
-  color: #fff;
+  color: black;
   font-size: 1.2em;
-  padding: 15px;
+  padding: 12px;
+  margin-left: 30px;
+  outline: none;
 }
 
-.task input:focus, .task input:hover{
+.task input:focus,
+.task input:hover {
   border-bottom: 3px solid #06214b;
 }
 
-.task button{
+.task button {
   background: none;
   border: none;
   width: 20%;
   height: 30px;
 }
-.task button:hover{
+
+.task button:hover {
   cursor: pointer;
 }
 
-.task button img{
+.task button img {
   height: 30px;
 }
 
-.info{
+.info {
   width: 33%;
   height: 100px;
-  margin:  30px 15px 0px 15px;
+  margin: 30px 15px 0px 15px;
   padding: 15px;
-  border: 5px solid #06214b;
+  border: 5px solid #003ea8;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
 
-.logo-tarefas{
+.logo-tarefas {
   color: white;
   font-weight: 900;
   font-size: 2.5em;
-  line-height: .8em;
+  line-height: 0.8em;
   width: 130px;
 }
 
-.slogan{
+.slogan {
   margin-left: 15px;
   color: white;
   text-align: right;
 }
 
-.garbage{
+.garbage {
   width: 33%;
   height: 100px;
-  margin:  30px 15px 0px 15px;
-  background-color: #1e3662;
-  border: 1px solid #06214b;
+  margin: 30px 15px 0px 15px;
+  background-color: black;
+  border: 1px solid #003ea8;
   border-radius: 5px;
-  background-image: url('./icons/trash.png');
+  background-image: url("./icons/trash.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 50px;
 }
 
-.garbage h2{
+.garbage h2 {
   visibility: hidden;
   height: 0;
 }
 
-.garbage .quadro-tarefas{
+.garbage .quadro-tarefas {
   height: 100%;
 }
 
-@media all and (max-width: 600px){
-  
-  .tarefas-container{
+@media all and (max-width: 960px) {
+  .tarefas-container {
     flex-direction: column;
     justify-content: center;
+    align-items: center;
   }
-  .tarefas{
-    min-height: 30vh;
-    margin-bottom: 15px;
+
+  .tarefas {
+    min-width: 40vh;
+    margin: 12vh 0 0 15px;
+  }
+
+  .info {
+    display: none;
+  }
+
+  .footer {
+    padding: 50px;
+  }
+
+  .task {
+    width: 50%;
+    height: 100px;
+  }
+
+  .task h2 {
+    font-size: 85%;
+  }
+
+  .task input,
+  .task button {
+    margin-top: 2vh;
   }
 }
