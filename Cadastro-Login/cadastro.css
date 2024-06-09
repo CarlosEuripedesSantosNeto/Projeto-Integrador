@@ -28,11 +28,11 @@ body {
 }
 
 .container .sign-up h1{
-  color: #374a79;
+  color: #003EA8;
 }
 
 .container .sign-in h1{
-  color: #374a79;
+  color: #003EA8;
 }
 
 .container p{
@@ -55,7 +55,7 @@ body {
 }
 
 .container button{
-  background-color: #374a79;
+  background-color: #003EA8;
   color: #fff;
   font-size: 12px;
   padding: 10px 45px;
@@ -95,11 +95,11 @@ body {
 }
 
 .container input::placeholder {
-  color: #374a79;
+  color: #003EA8;
 }
 
 .container a {
-  color: #374a79;
+  color: #003EA8;
 }
 
 .form-container{
@@ -177,9 +177,9 @@ body {
 }
 
 .toggle{
-  background-color: #374a79;
+  background-color: #003EA8;
   height: 100%;
-  background: #374a79;
+  background: #003EA8;
   color: #fff;
   position: relative;
   left: -100%;
@@ -251,7 +251,7 @@ body.dark-theme {
 }
 
 .dark-theme .container input {
-  background-color: #374a79;
+  background-color: #003EA8;
   color: #fff;
 }
 
@@ -260,7 +260,7 @@ body.dark-theme {
 }
 
 .dark-theme .container button {
-  background-color: #374a79;
+  background-color: #003EA8;
 }
 
 .dark-theme .container button.hidden {
@@ -274,7 +274,7 @@ body.dark-theme {
 }
 
 .dark-theme .toggle {
-  background: #374a79;
+  background: #003EA8;
 }
 
 .dark-theme .social-icons a {
