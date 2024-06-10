@@ -10,20 +10,32 @@ loginBtn.addEventListener('click', () => {
     container.classList.remove("active");
 });
 
-function myFunction() {
-    var element = document.getElementsByTagName('body')[0];
-    element.classList.toggle("dark-theme");
-    if (element.classList.contains("dark-theme")) {
-        // Se estiver no modo escuro, define a cor de fundo do body como #333
-        element.style.backgroundColor = "#333";
+function applyTheme(theme) {
+    if (theme === 'light') {
+        document.body.classList.add('light-theme');
     } else {
-        // Se não estiver no modo escuro, remove a cor de fundo personalizada
-        element.style.backgroundColor = "";
+        document.body.classList.remove('light-theme');
     }
 }
 
-const themeToggle = document.getElementById('theme-toggle');
+// Verificar o tema salvo no localStorage ao carregar a página
+document.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    applyTheme(savedTheme);
 
-themeToggle.addEventListener('change', () => {
-    document.body.classList.toggle('dark-theme');
+    // Ajustar o estado do botão de alternância
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.checked = (savedTheme === 'light');
+    }
 });
+
+// Alternar tema e salvar preferência no localStorage
+const themeToggle = document.getElementById('theme-toggle');
+if (themeToggle) {
+    themeToggle.addEventListener('change', () => {
+        const theme = themeToggle.checked ? 'light' : 'dark';
+        applyTheme(theme);
+        localStorage.setItem('theme', theme);
+    });
+}
